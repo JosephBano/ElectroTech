@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -38,6 +40,35 @@ public class Logic_view_client implements ActionListener{
 			}
 			JOptionPane.showMessageDialog(vc, "Cliente agregado con exito!");
 			resetFields();
+		}
+		else if(e.getSource()==vc.btn_Update) {
+
+			
+			try {
+				List<Client> clients = cdao.listClient("Cliente");
+				boolean flag = false;
+				
+				String name = vc.txt_Name.getText();
+				//String email = vc.txt_Email.getText();
+				String adress = vc.txt_Address.getText();
+				String detail = vc.txt_ContactDetails.getText();
+				
+				for(Client c: clients) {
+					if(c.getName().equals(name)) {
+						cdao.updateClient(c, new Client(name,"client@client.com", adress, detail));
+						JOptionPane.showMessageDialog(vc, "El cliente se ha actualizado con exito");
+						resetFields();
+						flag = true;
+					}
+					if(flag == false) {
+						JOptionPane.showMessageDialog(vc, "No se han encontrado las credenciales para actualizar!");
+					}
+				}
+				
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 	

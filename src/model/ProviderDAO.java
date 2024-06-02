@@ -25,9 +25,13 @@ public class ProviderDAO implements SettingsEmployee{
 	public List<Provider> listProviders(String rol) throws IOException{
 		List<Provider> providers=new ArrayList<>();
 		file.setFile(new File(mainPath,information));
-		//leer los datos del archivo
+		
 		String [] data=file.readerFile().split("\n");
 		for(String d:data) {
+			
+			if (d.trim().isEmpty()) {
+	            continue;
+			}
 			String [] info=d.split(";");
 			
 			if(rol.equals(info[3])) {

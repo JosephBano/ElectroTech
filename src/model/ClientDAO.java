@@ -28,6 +28,11 @@ public class ClientDAO implements SettingsEmployee{
 		
 		String [] data = file.readerFile().split("\n");
 		for(String d:data) {
+			
+			if (d.trim().isEmpty()) {
+	            continue;
+			}
+			
 			String [] info = d.split(";");
 			
 			if(rol.equals(info[3])) {
@@ -41,7 +46,26 @@ public class ClientDAO implements SettingsEmployee{
 		return clients;
 	}
 	
-	public boolean updateClient() {
-		return true;
+	public boolean updateClient(Client c, Client c_new) throws IOException {
+	    String[] clients = file.readerFile().split("\n");
+	    boolean flag = false;
+
+	    for (int i = 0; i < clients.length; i++) {
+	        if (clients[i].split(";")[0].equals(c.getName()) && clients[i].split(";")[3].equals("Cliente")) {
+	            clients[i] = c_new.infoClient();
+	            flag = true;
+	        }
+	    }
+
+	    if (!flag) return false;
+
+	    file.writerFile("Usuarios", true);
+
+	    for (int i = 0; i < clients.length; i++) {
+	        System.out.println(clients[i]);
+	        file.writerFile(clients[i], false);
+	    }
+
+	    return true;
 	}
 }

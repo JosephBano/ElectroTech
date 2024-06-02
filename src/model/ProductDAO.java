@@ -23,25 +23,27 @@ private FIles file;
 	}
 	
 	public boolean replaceProduct(Product new_p, String infoProd) throws IOException {
-		String [] products = file.readerFile().split("\n");
-		boolean flag = false;
-		
-		for(String product: products) {
-			if(product.equals(infoProd)) {
-				product = new_p.infoProduct();
-				flag = true;
-			}
-		}
-		
-		if(flag == false) return false;
-		
-		file.writerFile("", true);
-		
-		for(String product: products) {
-			file.writerFile(product, false);
-		}
-		return true;
+	    String[] products = file.readerFile().split("\n");
+	    boolean flag = false;
+
+	    for (int i = 0; i < products.length; i++) {
+	        if (products[i].equals(infoProd)) {
+	            products[i] = new_p.infoProduct();
+	            flag = true;
+	        }
+	    }
+
+	    if (!flag) return false;
+
+	    file.writerFile("", true);
+
+	    for (int i = 0; i < products.length; i++) {
+	        file.writerFile(products[i], false);
+	    }
+
+	    return true;
 	}
+
 	
 	public List<Product> readProducts() throws IOException{
 		List<Product> products = new ArrayList<>();
