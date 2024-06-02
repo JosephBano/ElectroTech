@@ -22,6 +22,7 @@ import model.Employees;
 import model.EmployeesDAO;
 
 public class Logic_view_login implements ActionListener{
+	
 	private View_Login vm;
 	private FIles files=new FIles("");
 	private EmployeesDAO edao=new EmployeesDAO();

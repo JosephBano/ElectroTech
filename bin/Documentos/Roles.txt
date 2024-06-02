@@ -1,6 +1,7 @@
-Steven Parra;sparral@est.ups.edu.ec;UPSA123;Admin
-Jossue Bastidas;rbastidasa@est.ups.edu.ec;UPSR123;Ventas
-Andres Bañon;jbanon1@est.ups.edu.ec;UPSJ123;Proveedor
-Sebastián Tipantuña;jtipantunat3@est.ups.edu.ec;UPSS123;Cliente
-Pancracio Rigoberto;jossuebast@hotmail.com;UPSR123;Inventario
-Nayely Bautista;bbautistan@est.ups.edu.ec;UPSB123;Admin
+Steven Parra;sparral@est.ups.edu.ec;UPSA123;Admin;
+Jossue Bastidas;rbastidasa@est.ups.edu.ec;UPSR123;Ventas;
+Andres Bañon;jbanon1@est.ups.edu.ec;UPSJ123;Proveedor;1805359401;100;2445210;Ganadero;
+Sebastián Tipantuña;jtipantunat3@est.ups.edu.ec;UPSS123;Cliente;
+Pancracio Rigoberto;jossuebast@hotmail.com;UPSR123;Inventario;
+Nayely Bautista;bbautistan@est.ups.edu.ec;UPSB123;Admin;
+Juan Lopez;jlopez@est.ups.edu.ec;UPS123;Proveedor;

@@ -1,0 +1,6 @@
+Yogurt;Producto lacteo de 250ml;0.50;8;1805359401;
+
+
+Leche Roja;Leche entera de 1L;0.90;12;1805359401;
+
+

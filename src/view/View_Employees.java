@@ -35,25 +35,6 @@ public class View_Employees extends JFrame {
 	public JComboBox cmb_role;
 	private JLabel lbl_icon_Show_Lock;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					View_Employees frame = new View_Employees();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public View_Employees() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(View_Employees.class.getResource("/view_multimedia/badge_24dp_FILL0_wght400_GRAD0_opsz24.png")));
 		setTitle("Empleados");

@@ -26,19 +26,6 @@ public class View_AñadirEmpleados extends JFrame {
  private JLabel lbl_empleados;
  private JTextField txtRol;
 
- public static void main(String[] args) {
-  EventQueue.invokeLater(new Runnable() {
-   public void run() {
-    try {
-    	View_AñadirEmpleados frame = new View_AñadirEmpleados();
-     frame.setVisible(true);
-    } catch (Exception e) {
-     e.printStackTrace();
-    }
-   }
-  });
- }
-
  public View_AñadirEmpleados() {
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   setBounds(100, 100, 550, 471);

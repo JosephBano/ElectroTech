@@ -7,6 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+
+import controller.Logic_view_inventario;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.BorderFactory;
@@ -23,19 +26,8 @@ public class view_inventario extends JFrame {
 	public JTextField txtNombre;
 	public JComboBox comboBoxProveedor;
 	public JSpinner spinnerCantidad;
+	public JButton btnAgregar;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					view_inventario frame = new view_inventario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public view_inventario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,7 +93,7 @@ public class view_inventario extends JFrame {
 		lblProveedor.setFont(new Font("Cambria", Font.PLAIN, 14)); // fuente Cambria
 		contentPane.add(lblProveedor);
 	
-		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar = new JButton("Agregar");
 		btnAgregar.setBounds(153, 196, 89, 23);
 		btnAgregar.setBackground(Color.WHITE); // fondo violeta
 		btnAgregar.setForeground(Color.BLACK); // texto blanco
@@ -127,5 +119,7 @@ public class view_inventario extends JFrame {
 		lblNewLabel.setBounds(146, 29, 85, 17);
 		lblNewLabel.setForeground(Color.BLUE); // texto azul
 		contentPane.add(lblNewLabel);
+		
+		Logic_view_inventario lvi = new Logic_view_inventario(this);
 	}
 }

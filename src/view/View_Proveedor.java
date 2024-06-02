@@ -28,25 +28,7 @@ public class View_Proveedor extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					View_Proveedor frame = new View_Proveedor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public View_Proveedor() {
 		setForeground(new Color(172, 210, 230));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(View_Proveedor.class.getResource("/view_multimedia/proveedor.png")));

@@ -26,26 +26,7 @@ public class View_Clientes extends JFrame {
 	private JTextField txt_Address;
 	private JTextField txt_ContactDetails;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					View_Clientes frame = new View_Clientes();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
-
-	/**
-	 * Create the frame.
-	 */
 	public View_Clientes() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(View_Clientes.class.getResource("/view_multimedia/Clientes.png")));
 		setTitle("Clientes");
