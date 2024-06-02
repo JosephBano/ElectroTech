@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import controller.Logic_view_client;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -22,9 +24,11 @@ public class View_Clientes extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txt_Name;
-	private JTextField txt_Address;
-	private JTextField txt_ContactDetails;
+	public JTextField txt_Name;
+	public JTextField txt_Address;
+	public JTextField txt_ContactDetails;
+	public JButton btn_Add;
+	public JButton btn_Update;
 
 	
 	public View_Clientes() {
@@ -81,7 +85,7 @@ public class View_Clientes extends JFrame {
 	    txt_ContactDetails.setBorder(null);
 	    contentPane.add(txt_ContactDetails);
 
-	    JButton btn_Add = new JButton("Agregar Cliente");
+	    btn_Add = new JButton("Agregar Cliente");
 	    btn_Add.setToolTipText("Add");
 	    btn_Add.setFont(new Font("Times New Roman", Font.BOLD, 12));
 	    btn_Add.setForeground(new Color(0, 0, 0));
@@ -96,7 +100,7 @@ public class View_Clientes extends JFrame {
 	    });
 	    contentPane.add(btn_Add);
 
-	    JButton btn_Update = new JButton("Actualizar Cliente");
+	    btn_Update = new JButton("Actualizar Cliente");
 	    btn_Update.setToolTipText("Update");
 	    btn_Update.setFont(new Font("Times New Roman", Font.BOLD, 12));
 	    btn_Update.setForeground(new Color(0, 0, 0));
@@ -155,5 +159,7 @@ public class View_Clientes extends JFrame {
 	    lbl_IconRefresh.setIcon(new ImageIcon(View_Clientes.class.getResource("/view_multimedia/rotacion.png")));
 	    lbl_IconRefresh.setBounds(543, 286, 40, 40);
 	    contentPane.add(lbl_IconRefresh);
+	    
+	    Logic_view_client lvc = new Logic_view_client(this);
 	}
 }
