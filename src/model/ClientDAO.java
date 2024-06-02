@@ -59,7 +59,7 @@ public class ClientDAO implements SettingsEmployee{
 
 	    if (!flag) return false;
 
-	    file.writerFile("Usuarios", true);
+	    file.writerFile("", true);
 
 	    for (int i = 0; i < clients.length; i++) {
 	        System.out.println(clients[i]);

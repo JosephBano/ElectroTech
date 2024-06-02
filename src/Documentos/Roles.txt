@@ -1,6 +1,3 @@
-Usuarios
-
-
 Steven Parra;sparral@est.ups.edu.ec;UPSA123;Admin;
 Jossue Bastidas;rbastidasa@est.ups.edu.ec;UPSR123;Ventas;
 Andres Bañon;jbanon1@est.ups.edu.ec;UPSJ123;Proveedor;1805359401;100;2445210;Ganadero;
