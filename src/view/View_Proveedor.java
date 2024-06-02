@@ -18,6 +18,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.DropMode;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.MatteBorder;
+
+import controller.Logic_view_proveedor;
+
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -27,6 +30,14 @@ public class View_Proveedor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	public JButton btn_save;
+	public JFormattedTextField txt_Names;
+	public JTextField txt_Email;
+	public JTextField txt_RUC;
+	public JTextField txt_Code;
+	public JTextField txt_Phone;
+	public JTextField txt_SocialReason;
+	public JButton btn_close;
 
 	
 	public View_Proveedor() {
@@ -57,13 +68,13 @@ public class View_Proveedor extends JFrame {
 	    panel_1.setLayout(null);
 	    
 	    
-	    JButton btn_save = new JButton("Guardar");
+	    btn_save = new JButton("Guardar");
 	    btn_save.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    	}
 	    });
 	    
-	    JButton btn_close = new JButton("Cerrar");
+	    btn_close = new JButton("Cerrar");
 	    btn_close.setToolTipText("Cerrar");
 	    btn_close.setOpaque(true);
 	    btn_close.setBorderPainted(false);
@@ -84,7 +95,7 @@ public class View_Proveedor extends JFrame {
 	    lbl_proveedor.setFont(new Font("Times New Roman", Font.BOLD, 25));
 	    lbl_proveedor.setForeground(new Color(0, 0, 0));
 	    
-	    JFormattedTextField txt_Names = new JFormattedTextField();
+	    txt_Names = new JFormattedTextField();
 	    txt_Names.setBackground(new Color(228, 241, 248));
 	    txt_Names.setForeground(Color.GRAY);
 	    txt_Names.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -107,7 +118,7 @@ public class View_Proveedor extends JFrame {
 	    lbl_Email.setFont(new Font("Times New Roman", Font.BOLD, 15));
 	    lbl_Email.setForeground(new Color(0, 0, 0));
 	    	    	    	    	    
-	    JTextField txt_Email = new JTextField();
+	    txt_Email = new JTextField();
 	    txt_Email.setBackground(new Color(228, 241, 248));
 	    txt_Email.setForeground(Color.GRAY);
 	    txt_Email.setBounds(70, 156, 200, 26);
@@ -121,7 +132,7 @@ public class View_Proveedor extends JFrame {
 	    lbl_RUC.setFont(new Font("Times New Roman", Font.BOLD, 15));
 	    lbl_RUC.setForeground(new Color(0, 0, 0));
 	    	    	    	    	    	    	    
-	    JTextField txt_RUC = new JTextField();
+	    txt_RUC = new JTextField();
 	    txt_RUC.setForeground(Color.GRAY);
 	    txt_RUC.setBackground(new Color(228, 241, 248));
 	    txt_RUC.setBounds(70, 204, 200, 21);
@@ -135,7 +146,7 @@ public class View_Proveedor extends JFrame {
 	    lbl_Code.setFont(new Font("Times New Roman", Font.BOLD, 15));
 	    lbl_Code.setForeground(new Color(0, 0, 0));
 	    	    	    	    	    	    	    	    	    
-	    JTextField txt_Code = new JTextField();
+	    txt_Code = new JTextField();
 	    txt_Code.setForeground(Color.GRAY);
 	    txt_Code.setBackground(new Color(228, 241, 248));
 	    txt_Code.setBounds(70, 260, 200, 20);
@@ -149,7 +160,7 @@ public class View_Proveedor extends JFrame {
 	    lbl_Phone.setFont(new Font("Times New Roman", Font.BOLD, 15));
 	    lbl_Phone.setForeground(new Color(0, 0, 0));
 	    	    	    	    	    	    	    	    	    	    	    
-	    JTextField txt_Phone = new JTextField();
+	    txt_Phone = new JTextField();
 	    txt_Phone.setBackground(new Color(228, 241, 248));
 	    txt_Phone.setForeground(Color.GRAY);
 	    txt_Phone.setBounds(70, 313, 200, 28);
@@ -163,7 +174,7 @@ public class View_Proveedor extends JFrame {
 	    lbl_SocialReason.setFont(new Font("Times New Roman", Font.BOLD, 15));
 	    lbl_SocialReason.setForeground(new Color(0, 0, 0));
 	    	    	    	    	    	    	    	    	    	    	    	    	    
-	    JTextField txt_SocialReason = new JTextField();
+	    txt_SocialReason = new JTextField();
 	    txt_SocialReason.setHorizontalAlignment(SwingConstants.LEFT);
 	    txt_SocialReason.setBackground(new Color(228, 241, 248));
 	    txt_SocialReason.setForeground(Color.GRAY);
@@ -240,5 +251,7 @@ public class View_Proveedor extends JFrame {
 	    lblNewLabel_1.setBounds(20, 130, 145, 145);
 	    lblNewLabel_1.setIcon(new ImageIcon(View_Proveedor.class.getResource("/view_multimedia/UPS ICONO.png")));
 	    panel.add(lblNewLabel_1);
+	    
+	    Logic_view_proveedor lvp = new Logic_view_proveedor(this);
 	}
 }

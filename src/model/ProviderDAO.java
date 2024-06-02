@@ -17,9 +17,13 @@ public class ProviderDAO implements SettingsEmployee{
 		file.create(0);
 	}
 	
+	public boolean writeProduct(Provider p) throws IOException{
+		file.setFile(new File(mainPath,information));
+		return file.writerFile(p.infoProvider(), false);
+	}
  	
-	public List<Employees> listProviders(String rol) throws IOException{
-		List<Employees> employees=new ArrayList<>();
+	public List<Provider> listProviders(String rol) throws IOException{
+		List<Provider> providers=new ArrayList<>();
 		file.setFile(new File(mainPath,information));
 		//leer los datos del archivo
 		String [] data=file.readerFile().split("\n");
@@ -27,16 +31,18 @@ public class ProviderDAO implements SettingsEmployee{
 			String [] info=d.split(";");
 			
 			if(rol.equals(info[3])) {
-				Employees e=new Employees();
-				e.setName(info[0]);
-				e.setEmail(info[1]);
-				e.setPassword(info[2]);
-				e.setRole(info[3]);
-				employees.add(e);
+				Provider e=new Provider(info[0],//nombre
+										info[1],//correo
+										Long.parseLong(info[4]),//dni
+										Integer.parseInt(info[5]),//code
+										Long.parseLong(info[6]),//telefono
+										info[7]//razon social
+										);
+				providers.add(e);
 				
 			}
 		}
-		return employees;
+		return providers;
 	}
 	
 	public long getDniByName(String name) throws IOException {

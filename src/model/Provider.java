@@ -61,6 +61,12 @@ public class Provider {
 	}
 	
 	public String infoProvider() {
-		return String.format("%s;%s;%d;%d;%d;%s;", getFullname(), getEmail(), getDni(), getPhone(), getCode(), getSocialReason());
+		return String.format("%s;%s;prov;Proveedor;%d;%d;%d;%s;\n", 
+				getFullname(), 
+				getEmail(), 
+				getDni(), 
+				getCode(), 
+				getPhone(), 
+				getSocialReason());
 	}
 }

@@ -4,4 +4,5 @@ Andres Bañon;jbanon1@est.ups.edu.ec;UPSJ123;Proveedor;1805359401;100;2445210;Ga
 Sebastián Tipantuña;jtipantunat3@est.ups.edu.ec;UPSS123;Cliente;
 Pancracio Rigoberto;jossuebast@hotmail.com;UPSR123;Inventario;
 Nayely Bautista;bbautistan@est.ups.edu.ec;UPSB123;Admin;
-Juan Lopez;jlopez@est.ups.edu.ec;UPS123;Proveedor;
+Juan Lopez;jlopez@est.ups.edu.ec;UPS123;Proveedor;1802989226;101;2445410;MicroChips;
+Lucas Rojo;lrojo@est.ups.edu.ec;prov;Proveedor;1804349301;103;2435211;Vendedor Protoboards;

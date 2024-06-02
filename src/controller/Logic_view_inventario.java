@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import model.Employees;
 import model.Product;
 import model.ProductDAO;
+import model.Provider;
 import model.ProviderDAO;
 import view.view_inventario;
 
@@ -18,7 +19,7 @@ public class Logic_view_inventario implements ActionListener{
 	private view_inventario vi;
 	private ProviderDAO udao = new ProviderDAO();
 	private ProductDAO pdao = new ProductDAO();
-	private List<Employees> providers;
+	private List<Provider> providers;
 	
 	public Logic_view_inventario(view_inventario vi_) {
 		this.vi = vi_;
@@ -32,9 +33,8 @@ public class Logic_view_inventario implements ActionListener{
 		}
 		
 		
-		for(Employees e: providers) {
-			System.out.println(e.getName()+1);
-			this.vi.comboBoxProveedor.addItem(e.getName());
+		for(Provider e: providers) {
+			this.vi.comboBoxProveedor.addItem(e.getFullname());
 		}
 	}
 
