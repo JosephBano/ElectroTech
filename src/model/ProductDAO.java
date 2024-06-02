@@ -43,6 +43,14 @@ private FIles file;
 
 	    return true;
 	}
+	
+	public void updateStockProduct(List<Product> list) throws IOException {
+		file.setFile(new File(mainPath,inventario));
+		file.writerFile("", true);
+		for(Product p:list) {
+			file.writerFile(p.infoProduct(), false);
+		}
+	}
 
 	
 	public List<Product> readProducts() throws IOException{
@@ -51,6 +59,9 @@ private FIles file;
 		
 		String [] data = file.readerFile().split("\n"); 
 		for(String d:data) {
+			if (d.trim().isEmpty()) {
+	            continue;
+			}
 			String [] info = d.split(";");
 			Product p = new Product(info[0],//nombre
 									info[1],//descripcion

@@ -19,17 +19,17 @@ public class View_ventas extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public JComboBox cmb_clientes;
 	public JComboBox cmb_productos;
-	public JTextField txt_cantidad;
 	public JTextField txt_precio;
 	public JTextField txt_subtotal;
 	public JTextField txt_iva;
 	public JTextField txt_total;
 	public JButton btn_confirmar;
+	public JSpinner spn_cant;
 
 
 	public View_ventas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 426, 300);
+		setBounds(100, 100, 429, 315);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -60,11 +60,6 @@ public class View_ventas extends JFrame {
 		lblNewLabel_4.setBounds(21, 120, 113, 14);
 		contentPane.add(lblNewLabel_4);
 		
-		txt_cantidad = new JTextField();
-		txt_cantidad.setBounds(144, 118, 65, 17);
-		contentPane.add(txt_cantidad);
-		txt_cantidad.setColumns(10);
-		
 		JLabel lblNewLabel_2 = new JLabel("Precio:");
 		lblNewLabel_2.setBounds(281, 79, 40, 14);
 		contentPane.add(lblNewLabel_2);
@@ -76,38 +71,42 @@ public class View_ventas extends JFrame {
 		txt_precio.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("I.V.A 15%:");
-		lblNewLabel_5.setBounds(239, 166, 65, 14);
+		lblNewLabel_5.setBounds(239, 190, 65, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Subtotal:");
-		lblNewLabel_6.setBounds(239, 145, 52, 14);
+		lblNewLabel_6.setBounds(239, 165, 52, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		txt_subtotal = new JTextField();
 		txt_subtotal.setEditable(false);
-		txt_subtotal.setBounds(301, 138, 78, 17);
+		txt_subtotal.setBounds(301, 162, 78, 17);
 		contentPane.add(txt_subtotal);
 		txt_subtotal.setColumns(10);
 		
 		txt_iva = new JTextField();
 		txt_iva.setEditable(false);
 		txt_iva.setColumns(10);
-		txt_iva.setBounds(301, 163, 78, 17);
+		txt_iva.setBounds(301, 188, 78, 17);
 		contentPane.add(txt_iva);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Total:");
-		lblNewLabel_5_1.setBounds(239, 191, 65, 14);
+		lblNewLabel_5_1.setBounds(239, 216, 65, 14);
 		contentPane.add(lblNewLabel_5_1);
 		
 		txt_total = new JTextField();
 		txt_total.setEditable(false);
 		txt_total.setColumns(10);
-		txt_total.setBounds(301, 188, 78, 17);
+		txt_total.setBounds(301, 214, 78, 17);
 		contentPane.add(txt_total);
 		
 		btn_confirmar = new JButton("Confirmar compra");
-		btn_confirmar.setBounds(281, 227, 117, 23);
+		btn_confirmar.setBounds(281, 242, 117, 23);
 		contentPane.add(btn_confirmar);
+		
+		spn_cant = new JSpinner();
+		spn_cant.setBounds(129, 117, 46, 20);
+		contentPane.add(spn_cant);
 		
 		Logic_view_ventas lvv=new Logic_view_ventas(this);
 	}
