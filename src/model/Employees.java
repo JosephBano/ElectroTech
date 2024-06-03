@@ -53,6 +53,10 @@ public class Employees {
 	public void setPhone(String phone) {
 		number = phone;
 	}
+	
+	public String getPhone() {
+		return number;
+	}
 
 	public String infoEmployee() {
 		return String.format("%s;%s;%s;%s;%s;", getName(),getEmail(),getPassword(),getRole(),number);

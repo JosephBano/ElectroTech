@@ -49,9 +49,6 @@ public class ClientDAO implements SettingsEmployee{
 	public boolean updateClient(Client c, Client c_new) throws IOException {
 	    String[] clients = file.readerFile().split("\n");
 	    boolean flag = false;
-
-	    System.out.println(c.infoClient());
-	    System.out.println(c_new.infoClient());
 	    
 	    for (int i = 0; i < clients.length; i++) {
 	        if (clients[i].split(";")[0].equals(c.getName())) {

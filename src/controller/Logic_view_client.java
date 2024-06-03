@@ -58,15 +58,13 @@ public class Logic_view_client implements ActionListener{
 				String detail = vc.txt_ContactDetails.getText();
 				
 				for(Client c: clients) {
-					System.out.println(c.getName());
 					if(c.getName().equals(name)) {
-						System.out.println("Accedi!");
 						if(cdao.validateFields(vc) == true) {
 
-						cdao.updateClient(c, new Client(name, adress, detail));
-						JOptionPane.showMessageDialog(vc, "El cliente se ha actualizado con exito");
-						resetFields();
-						flag = true;
+							cdao.updateClient(c, new Client(name, adress, detail));///////////////////////////
+							JOptionPane.showMessageDialog(vc, "El cliente se ha actualizado con exito");
+							resetFields();
+							flag = true;
 						}else{
 							JOptionPane.showMessageDialog(vc, "Campos Incorrectos");
 						}

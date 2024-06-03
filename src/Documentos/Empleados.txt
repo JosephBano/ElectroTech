@@ -1,8 +1,10 @@
-Steven Parra;sparral@est.ups.edu.ec;UPSA123;Admin;
-Jossue Bastidas;rbastidasa@est.ups.edu.ec;UPSR123;Ventas;
-Admin;Admin;1;Admin;
-Joseph Baño;jbanon1@est.ups.edu.ec;UPSB123;Inventario;
-Sebastian Tipantuña;jtipantunat3@ups.edu.ec;UPSS123;Proveedor;
-Alejandro Valencia;avalenciap2@est.ups.edu.ec;UPSV123;Cliente;
-Juan Lopez;jpablo1@est.ups.edu.ec;psw123;Proveedor;0992442193;
 
+
+
+Steven Parra;sparral@est.ups.edu.ec;Tufinogay;Admin;0992442193;
+Jossue Bastidas;rbastidasa@est.ups.edu.ec;UPSR123;Ventas;0992442193;
+Admin;Admin;1;Admin;0992442193;
+Joseph Baño;jbanon1@est.ups.edu.ec;UPSB123;Inventario;0992442193;
+Sebastian Tipantuña;jtipantunat3@ups.edu.ec;UPSS123;Proveedor;0992442193;
+Alejandro Valencia;avalenciap2@est.ups.edu.ec;UPSV123;Cliente;0992442193;
+Juan Lopez;jpablo1@est.ups.edu.ec;psw123;Proveedor;0992442193;

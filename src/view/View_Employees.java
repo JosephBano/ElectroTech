@@ -31,10 +31,10 @@ public class View_Employees extends JFrame {
 	public JLabel lbl_role;
 	public JButton btn_change_role;
 	public JButton btn_show_password;
-	public JButton btn_save;
 	public JComboBox cmb_role;
 	private JLabel lbl_icon_Show_Lock;
 	public JButton btnAddEmployer;
+	public JButton btn_resetpsw;
 
 	public View_Employees() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(View_Employees.class.getResource("/view_multimedia/badge_24dp_FILL0_wght400_GRAD0_opsz24.png")));
@@ -70,6 +70,7 @@ public class View_Employees extends JFrame {
 		contentPane.add(lbl_password);
 		
 		txt_password = new JTextField();
+		txt_password.setEditable(false);
 		txt_password.setBounds(124, 218, 205, 25);
 		txt_password.setVisible(false);
 		txt_password.setColumns(10);
@@ -77,21 +78,12 @@ public class View_Employees extends JFrame {
 		
 		btn_change_role = new JButton("Cambiar Privilegios");
 		btn_change_role.setFont(new Font("Times New Roman", Font.BOLD, 10));
-		btn_change_role.setBounds(521, 118, 130, 25);
+		btn_change_role.setBounds(519, 219, 130, 25);
 		btn_change_role.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		contentPane.add(btn_change_role);
-		
-		btn_save = new JButton("Guardar Datos");
-		btn_save.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btn_save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_save.setBounds(521, 220, 130, 23);
-		contentPane.add(btn_save);
 		
 		btn_show_password = new JButton("Mostrar Contraseña");
 		btn_show_password.setFont(new Font("Times New Roman", Font.BOLD, 10));
@@ -141,6 +133,11 @@ public class View_Employees extends JFrame {
 		btnAddEmployer.setIcon(new ImageIcon(View_Employees.class.getResource("/view_multimedia/agregar-usuario.png")));
 		btnAddEmployer.setBounds(721, 205, 53, 50);
 		contentPane.add(btnAddEmployer);
+		
+		btn_resetpsw = new JButton("Reset Password");
+		btn_resetpsw.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		btn_resetpsw.setBounds(379, 255, 127, 25);
+		contentPane.add(btn_resetpsw);
 		
 		Logic_view_employees lve= new Logic_view_employees(this);
 		

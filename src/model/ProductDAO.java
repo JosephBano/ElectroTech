@@ -23,6 +23,7 @@ private FIles file;
 	}
 	
 	public boolean replaceProduct(Product new_p, String infoProd) throws IOException {
+		file.setFile(new File(mainPath,inventario));
 	    String[] products = file.readerFile().split("\n");
 	    boolean flag = false;
 

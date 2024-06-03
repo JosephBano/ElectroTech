@@ -28,16 +28,48 @@ public class EmployeesDAO implements SettingsEmployee{
 		file.setFile(new File(mainPath,information));
 		//leer los datos del archivo
 		String [] data=file.readerFile().split("\n");
+		
 		for(String d:data) {
+			if (d.trim().isEmpty()) {
+	            continue;
+			}
+			
 			String [] info=d.split(";");
-			Employees e=new Employees();
-			e.setName(info[0]);
-			e.setEmail(info[1]);
-			e.setPassword(info[2]);
-			e.setRole(info[3]);
-			e.setPhone(info[4]);
+			
+			Employees e=new Employees(info[0],
+										info[1],
+										info[2],
+										info[3],
+										info[4]);
+			
 			employees.add(e);
 		}
 		return employees;
+	}
+	
+	public boolean replaceRol(Employees e, Employees e_new) throws IOException {
+		file.setFile(new File(mainPath,information));
+		String [] employees = file.readerFile().split("\n");
+		boolean flag = false;
+		
+		for(int i = 0; i < employees.length; i++) {
+			if (employees[i].trim().isEmpty()) {
+	            continue;
+			}
+			if(employees[i].split(";")[1].equals(e.getEmail())) {
+				employees[i] = e_new.infoEmployee();
+				flag = true;
+			}
+		}
+		
+		if(!flag) return false;
+		
+		file.writerFile("", true);
+		
+		for (int i = 0; i < employees.length; i++) {
+	        file.writerFile(employees[i], false);
+	    }
+		
+		return true;
 	}
 }

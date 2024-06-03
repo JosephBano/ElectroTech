@@ -6,6 +6,7 @@ public interface SettingsEmployee {
 	public final String inventario="Inventario.txt";
 	public final String cliente="Clientes.txt";
 	public final String provider="Provider.txt";
+	public final String registro="RegistroVentas.txt";
 
 
 	//ER para clientes
