@@ -11,7 +11,7 @@ public interface SettingsEmployee {
 	//ER para clientes
 	public static String ERNamesCLient = "^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\\s){3}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$";
 	//public static String EREmailClient = "^[\\w._%+-]+@(gmail|hotmail|outlook|est|ups)\\.(com|ec|ups\\.edu\\.ups|ec)$";
-	public static String ERAddress = "^[A-Z][a-z0-9\\s,\\-\\.#]+$";
+	public static String ERAddress = "^[A-Z]{1}[A-Za-z0-9\\s,\\-\\.#]+$";
 	
 	//ER para Proveedor
 	public static String ERNamesProvider = "^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\\s)[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$";

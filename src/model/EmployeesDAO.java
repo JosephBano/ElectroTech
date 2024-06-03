@@ -21,11 +21,7 @@ public class EmployeesDAO implements SettingsEmployee{
 		file.setFile(new File(mainPath,information));
 		return file.writerFile(e.infoEmployee()+"\n", false);
 	}
-	public boolean writeEmployeeName(Employees e,String user) throws IOException {
-		//Direccionar  al archivo
-		file.setFile(new File(mainPath,(user+".txt")));
-		return file.writerFile(e.infoEmployee()+"\n", true);
-	}
+	
 	public List<Employees> readEmployee() throws IOException{
 		//Almacenar los datos de cada persona encontrada
 		List<Employees> employees=new ArrayList<>();
@@ -39,6 +35,7 @@ public class EmployeesDAO implements SettingsEmployee{
 			e.setEmail(info[1]);
 			e.setPassword(info[2]);
 			e.setRole(info[3]);
+			e.setPhone(info[4]);
 			employees.add(e);
 		}
 		return employees;

@@ -13,20 +13,24 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
+
+import controller.Logic_view_addEmployers;
+
 import javax.swing.ImageIcon;
 
-public class View_AñadirEmpleados extends JFrame {
+public class View_addEmployers extends JFrame {
 
  private static final long serialVersionUID = 1L;
- private JPanel contentPane;
- private JTextField txtNombre;
- private JTextField txtCorreo;
- private JTextField txtClave;
- private JTextField txtTelefono;
- private JLabel lbl_empleados;
- private JTextField txtRol;
+ public JPanel contentPane;
+ public JTextField txtNombre;
+ public JTextField txtCorreo;
+ public JTextField txtClave;
+ public JTextField txtTelefono;
+ public JLabel lbl_empleados;
+ public JButton btnAgregar;
+ public JComboBox cmb_rol;
 
- public View_AñadirEmpleados() {
+ public View_addEmployers() {
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   setBounds(100, 100, 550, 471);
   contentPane = new JPanel();
@@ -97,10 +101,10 @@ public class View_AñadirEmpleados extends JFrame {
   contentPane.add(txtTelefono);
   txtTelefono.setColumns(10);
 
-  JButton btnAgregar = new JButton("Agregar");
+  btnAgregar = new JButton("Agregar");
   btnAgregar.setForeground(new Color(255, 255, 255));
   btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 13));
-  btnAgregar.setIcon(new ImageIcon(View_AñadirEmpleados.class.getResource("/view_multimedia/done_all_24dp_FILL0_wght400_GRAD0_opsz24.png")));
+  btnAgregar.setIcon(new ImageIcon(View_addEmployers.class.getResource("/view_multimedia/done_all_24dp_FILL0_wght400_GRAD0_opsz24.png")));
   btnAgregar.setBounds(216, 389, 129, 32);
   btnAgregar.setBorder(null);
   btnAgregar.setOpaque(false);
@@ -132,23 +136,21 @@ public class View_AñadirEmpleados extends JFrame {
   separator_1_1.setBounds(334, 277, 169, 2);
   contentPane.add(separator_1_1);
   
-  txtRol = new JTextField();
-  txtRol.setForeground(new Color(255, 255, 255));
-  txtRol.setBounds(334, 177, 169, 20);
-  txtRol.setOpaque(false);
-  txtRol.setBorder(null);
-  contentPane.add(txtRol);
-  txtRol.setColumns(10);
-  
   JSeparator separator_1_1_1 = new JSeparator();
   separator_1_1_1.setForeground(Color.BLACK);
   separator_1_1_1.setBounds(334, 207, 169, 2);
   contentPane.add(separator_1_1_1);
   
   JLabel lblNewLabel = new JLabel("");
-  lblNewLabel.setIcon(new ImageIcon(View_AñadirEmpleados.class.getResource("/view_multimedia/person_add_24dp_FILL0_wght400_GRAD0_opsz24.png")));
+  lblNewLabel.setIcon(new ImageIcon(View_addEmployers.class.getResource("/view_multimedia/person_add_24dp_FILL0_wght400_GRAD0_opsz24.png")));
   lblNewLabel.setBounds(221, 39, 96, 96);
   contentPane.add(lblNewLabel);
+  
+  cmb_rol = new JComboBox();
+  cmb_rol.setBounds(334, 176, 169, 22);
+  contentPane.add(cmb_rol);
+  
+  Logic_view_addEmployers lvae = new Logic_view_addEmployers(this);
  }
 }
 

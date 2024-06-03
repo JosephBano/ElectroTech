@@ -36,7 +36,6 @@ public class ClientDAO implements SettingsEmployee{
 			}
 			
 			String [] info = d.split(";");
-			System.out.println(d + "validator");
 			//if(rol.equals(info[2])) {
 				Client c = new Client(info[0],//fullname
 									info[1],//adress
@@ -51,6 +50,9 @@ public class ClientDAO implements SettingsEmployee{
 	    String[] clients = file.readerFile().split("\n");
 	    boolean flag = false;
 
+	    System.out.println(c.infoClient());
+	    System.out.println(c_new.infoClient());
+	    
 	    for (int i = 0; i < clients.length; i++) {
 	        if (clients[i].split(";")[0].equals(c.getName())) {
 	            clients[i] = c_new.infoClient();
@@ -69,22 +71,22 @@ public class ClientDAO implements SettingsEmployee{
 	    return true; 
 	}
 
-		public boolean validateFields(View_Clientes vc) {
+	public boolean validateFields(View_Clientes vc) {
 
 		boolean state = true;
 
 		if(file.validateByER(vc.txt_Name.getText(), ERNamesCLient)) {
-			
+			vc.txt_Name.setBackground(Color.WHITE);
 		}else {
 			vc.txt_Name.setBackground(Color.RED);
 			state = false;
 		}
-//		if(file.validateByER(vc.txt_ContactDetails.getText(), EREmailClient)){
-//
-//		}else {
-//			vc.txt_ContactDetails.setBackground(Color.RED);
-//			state = false;
-//		}
+		if(file.validateByER(vc.txt_ContactDetails.getText(), ERAddress)){
+			vc.txt_ContactDetails.setBackground(Color.WHITE);
+		}else {
+			vc.txt_ContactDetails.setBackground(Color.RED);
+			state = false;
+		}
 		if(file.validateByER(vc.txt_Address.getText(), ERAddress)) {
 			vc.txt_Address.setBackground(Color.WHITE);
 		}else {

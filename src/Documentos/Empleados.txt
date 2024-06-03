@@ -4,3 +4,5 @@ Admin;Admin;1;Admin;
 Joseph Baño;jbanon1@est.ups.edu.ec;UPSB123;Inventario;
 Sebastian Tipantuña;jtipantunat3@ups.edu.ec;UPSS123;Proveedor;
 Alejandro Valencia;avalenciap2@est.ups.edu.ec;UPSV123;Cliente;
+Juan Lopez;jpablo1@est.ups.edu.ec;psw123;Proveedor;0992442193;
+

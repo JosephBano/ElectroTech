@@ -58,8 +58,9 @@ public class Logic_view_client implements ActionListener{
 				String detail = vc.txt_ContactDetails.getText();
 				
 				for(Client c: clients) {
+					System.out.println(c.getName());
 					if(c.getName().equals(name)) {
-
+						System.out.println("Accedi!");
 						if(cdao.validateFields(vc) == true) {
 
 						cdao.updateClient(c, new Client(name, adress, detail));
@@ -69,10 +70,11 @@ public class Logic_view_client implements ActionListener{
 						}else{
 							JOptionPane.showMessageDialog(vc, "Campos Incorrectos");
 						}
-					}else if(flag == false) {
-						JOptionPane.showMessageDialog(vc, "No se han encontrado las credenciales para actualizar!");
-						break;
 					}
+					
+				}
+				if(flag == false) {
+					JOptionPane.showMessageDialog(vc, "No se han encontrado las credenciales para actualizar!");
 				}
 				
 			} catch (IOException e1) {

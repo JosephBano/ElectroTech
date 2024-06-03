@@ -4,16 +4,18 @@ import libreríaVersion2.generic;
 
 public class Employees {
 	private generic<String,String> dt_e;
+	private String number;
 	public Employees() {
 		super();
 		// TODO Auto-generated constructor stub
 		dt_e=new generic<>();
 	}
 	String email;
-	public Employees(String name,String email,String password,String role) {
+	public Employees(String name,String email,String password,String role, String phone) {
 		super();
 		// TODO Auto-generated constructor stub
 		dt_e=new generic<>(name,email,password,role);
+		number = phone;
 	}
 
 	public String getName() {
@@ -47,9 +49,13 @@ public class Employees {
 	public void setRole(String role) {
 		dt_e.setAttribute4(role);
 	}
+	
+	public void setPhone(String phone) {
+		number = phone;
+	}
 
 	public String infoEmployee() {
-		return String.format("%s,%s,%s,%s", getName(),getEmail(),getPassword(),getRole());
+		return String.format("%s;%s;%s;%s;%s;", getName(),getEmail(),getPassword(),getRole(),number);
 	}
 	
 }
