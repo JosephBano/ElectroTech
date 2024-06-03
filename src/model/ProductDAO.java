@@ -51,8 +51,7 @@ private FIles file;
 		for(Product p:list) {
 			file.writerFile(p.infoProduct(), false);
 		}
-	}
-
+	}	
 	
 	public List<Product> readProducts() throws IOException{
 		List<Product> products = new ArrayList<>();

@@ -38,20 +38,20 @@ public class Logic_view_proveedor implements ActionListener{
 			if(pdao.validateFields(vp) == true){
 
 				String fullname = vp.txt_Names.getText();
-			String email = vp.txt_Email.getText();
-			long dni = Long.parseLong(vp.txt_RUC.getText());
-			int code = Integer.parseInt(vp.txt_Code.getText());
-			long phone = Long.parseLong(vp.txt_Phone.getText());
-			String socialReason = vp.txt_SocialReason.getText();
-			
-			try {
-				pdao.writeProduct(new Provider(fullname, email, dni, code, phone, socialReason));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(vp, "Proveedor agregado con exito!");
-			resetFields();
+				String email = vp.txt_Email.getText();
+				long dni = Long.parseLong(vp.txt_RUC.getText());
+				int code = Integer.parseInt(vp.txt_Code.getText());
+				long phone = Long.parseLong(vp.txt_Phone.getText());
+				String socialReason = vp.txt_SocialReason.getText();
+				
+				try {
+					pdao.writeProduct(new Provider(fullname, email, dni, code, phone, socialReason));
+					JOptionPane.showMessageDialog(vp, "Proveedor agregado con exito!");
+					resetFields();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 
 			

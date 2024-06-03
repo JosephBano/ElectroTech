@@ -66,24 +66,24 @@ public class ProviderDAO implements SettingsEmployee{
 		boolean state = true;
 
 		if(file.validateByER(vp.txt_Names.getText(), ERNamesProvider)) {
-			
+			vp.txt_Names.setBackground(Color.WHITE);
 		}else {
 			vp.txt_Names.setBackground(Color.RED);
 			state = false;
 		}
 		if(file.validateByER(vp.txt_Email.getText(), EREmailProvider)){
-
+			vp.txt_Email.setBackground(Color.WHITE);
 		}else {
 			vp.txt_Email.setBackground(Color.RED);
 			state = false;
 		}
 		if(file.validateByER(vp.txt_RUC.getText(), ERRuc)){
-
+			vp.txt_RUC.setBackground(Color.WHITE);
 		}else{
 			vp.txt_RUC.setBackground(Color.RED);
 			state = false;
 		}if(file.validateByER(vp.txt_Phone.getText(), ERPhone)){
-
+			vp.txt_Phone.setBackground(Color.WHITE);
 		}else{
 			vp.txt_Phone.setBackground(Color.RED);
 			state = false;

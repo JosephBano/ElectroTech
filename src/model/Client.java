@@ -43,6 +43,6 @@ public class Client {
     }
 
     public String infoClient() {
-        return String.format("%s;%s;%s", getName(), getAddress(), getDetail());
+        return String.format("%s;%s;%s\n", getName(), getAddress(), getDetail());
     }
 }

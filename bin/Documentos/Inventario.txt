@@ -1,5 +1,7 @@
 
-Yogurt;Producto lacteo de 250ml;0.50;9;1805359401;
+Cable de poder;Cable para fuentes de poder;2.50;10;1805359401;
 
-Leche Roja;Leche entera de 1L;0.90;4;1805359401;
+RAM 16gb;Memoria RAM 16GB de 3600mhz;75.21;100;1805359401;
+
+Procesador R5 3600;Procesador de 8 nucleos y 16 hilos 3.2hz - 3.9hz;150.00;25;987372884;
 
