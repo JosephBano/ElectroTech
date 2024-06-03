@@ -100,20 +100,12 @@ public class View_Proveedor extends JFrame {
 	    txt_Names.setForeground(Color.GRAY);
 	    txt_Names.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 	    txt_Names.setToolTipText("");
-	    txt_Names.setBounds(70, 63, 200, 28);
+	    txt_Names.setBounds(70, 87, 200, 28);
 	    panel_1.add(txt_Names);
 	    txt_Names.setBorder(null);
-	    	    	    
-	    JTextField txt_Surname = new JTextField();
-	    txt_Surname.setForeground(Color.GRAY);
-	    txt_Surname.setBackground(new Color(228, 241, 248));
-	    txt_Surname.setBounds(80, 102, 200, 21);
-	    panel_1.add(txt_Surname);
-	    txt_Surname.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-	    txt_Surname.setBorder(null);
 	    	    	    	    
 	    JLabel lbl_Email = new JLabel("Email");
-	    lbl_Email.setBounds(28, 140, 72, 14);
+	    lbl_Email.setBounds(28, 136, 72, 14);
 	    panel_1.add(lbl_Email);
 	    lbl_Email.setFont(new Font("Times New Roman", Font.BOLD, 15));
 	    lbl_Email.setForeground(new Color(0, 0, 0));
@@ -186,14 +178,8 @@ public class View_Proveedor extends JFrame {
 	    JSeparator separator = new JSeparator();
 	    separator.setForeground(Color.BLACK);
 	    separator.setBackground(Color.BLACK);
-	    separator.setBounds(70, 92, 200, 5);
+	    separator.setBounds(70, 120, 200, 5);
 	    panel_1.add(separator);
-	    
-	    JSeparator separator_1 = new JSeparator();
-	    separator_1.setForeground(Color.BLACK);
-	    separator_1.setBackground(Color.BLACK);
-	    separator_1.setBounds(70, 132, 200, 5);
-	    panel_1.add(separator_1);
 	    
 	    JSeparator separator_1_1 = new JSeparator();
 	    separator_1_1.setForeground(Color.BLACK);
@@ -209,7 +195,7 @@ public class View_Proveedor extends JFrame {
 	    
 	    JLabel lbl_NombresYApellidos = new JLabel("DATOS");
 	    lbl_NombresYApellidos.setFont(new Font("Times New Roman", Font.BOLD, 15));
-	    lbl_NombresYApellidos.setBounds(28, 50, 52, 14);
+	    lbl_NombresYApellidos.setBounds(48, 42, 52, 14);
 	    panel_1.add(lbl_NombresYApellidos);
 	    
 	    JSeparator separator_1_1_1_1 = new JSeparator();
@@ -229,6 +215,11 @@ public class View_Proveedor extends JFrame {
 	    separator_1_1_1_1_1_1.setBackground(Color.BLACK);
 	    separator_1_1_1_1_1_1.setBounds(70, 401, 200, 5);
 	    panel_1.add(separator_1_1_1_1_1_1);
+	    
+	    JLabel lblNewLabel_2 = new JLabel("Fullname");
+	    lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
+	    lblNewLabel_2.setBounds(28, 67, 72, 14);
+	    panel_1.add(lblNewLabel_2);
 	   
 	    	    	    	    	    	    	    	    	    	    	    	    	    	    
 	    JLabel lblNewLabel = new JLabel("New label");

@@ -42,6 +42,7 @@ public class View_AñadirEmpleados extends JFrame {
   contentPane.add(lblNombre);
 
   txtNombre = new JTextField();
+  txtNombre.setForeground(new Color(255, 255, 255));
   txtNombre.setBounds(88, 179, 169, 17);
   txtNombre.setBorder(null); // borde magenta
   txtNombre.setOpaque(false);
@@ -55,6 +56,7 @@ public class View_AñadirEmpleados extends JFrame {
   contentPane.add(lblCorreo);
 
   txtCorreo = new JTextField();
+  txtCorreo.setForeground(new Color(255, 255, 255));
   txtCorreo.setBounds(88, 262, 169, 17);
   txtCorreo.setBorder(null); // borde magenta
   txtCorreo.setOpaque(false);
@@ -68,6 +70,7 @@ public class View_AñadirEmpleados extends JFrame {
   contentPane.add(lblClave);
 
   txtClave = new JTextField();
+  txtClave.setForeground(new Color(255, 255, 255));
   txtClave.setBounds(88, 343, 169, 17);
   txtClave.setBorder(null); // borde magenta
   txtClave.setOpaque(false);
@@ -87,6 +90,7 @@ public class View_AñadirEmpleados extends JFrame {
   contentPane.add(lblTelefono);
 
   txtTelefono = new JTextField();
+  txtTelefono.setForeground(new Color(255, 255, 255));
   txtTelefono.setBounds(334, 250, 169, 17);
   txtTelefono.setBorder(null); // borde magenta
   txtTelefono.setOpaque(false);
@@ -129,6 +133,7 @@ public class View_AñadirEmpleados extends JFrame {
   contentPane.add(separator_1_1);
   
   txtRol = new JTextField();
+  txtRol.setForeground(new Color(255, 255, 255));
   txtRol.setBounds(334, 177, 169, 20);
   txtRol.setOpaque(false);
   txtRol.setBorder(null);

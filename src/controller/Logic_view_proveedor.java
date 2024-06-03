@@ -20,6 +20,7 @@ public class Logic_view_proveedor implements ActionListener{
 	public Logic_view_proveedor(View_Proveedor vp_) {
 		this.vp = vp_;
 		this.vp.btn_save.addActionListener(this);
+		this.vp.btn_close.addActionListener(this);
 		
 		try {
 			providers = pdao.listProviders("Providers");
@@ -33,7 +34,10 @@ public class Logic_view_proveedor implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==vp.btn_save) {
-			String fullname = vp.txt_Names.getText();
+
+			if(pdao.validateFields(vp) == true){
+
+				String fullname = vp.txt_Names.getText();
 			String email = vp.txt_Email.getText();
 			long dni = Long.parseLong(vp.txt_RUC.getText());
 			int code = Integer.parseInt(vp.txt_Code.getText());
@@ -48,6 +52,11 @@ public class Logic_view_proveedor implements ActionListener{
 			}
 			JOptionPane.showMessageDialog(vp, "Proveedor agregado con exito!");
 			resetFields();
+			}
+
+			
+		} else if (e.getSource() == vp.btn_close) {
+			vp.dispose();
 		}
 	}
 	

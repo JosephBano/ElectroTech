@@ -1,11 +1,13 @@
 package model;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import libreríaVersion2.FIles;
+import view.View_Clientes;
 
 public class ClientDAO implements SettingsEmployee{
 
@@ -18,13 +20,13 @@ public class ClientDAO implements SettingsEmployee{
 	}
 	
 	public boolean writeClient(Client c) throws IOException {
-		file.setFile(new File(mainPath,information));
+		file.setFile(new File(mainPath,cliente));
 		return file.writerFile(c.infoClient(), false);
 	}
 	
 	public List<Client> listClient(String rol) throws IOException {
 		List<Client> clients = new ArrayList<>();
-		file.setFile(new File(mainPath,information));
+		file.setFile(new File(mainPath,cliente));
 		
 		String [] data = file.readerFile().split("\n");
 		for(String d:data) {
@@ -34,14 +36,13 @@ public class ClientDAO implements SettingsEmployee{
 			}
 			
 			String [] info = d.split(";");
-			
-			if(rol.equals(info[3])) {
+			System.out.println(d + "validator");
+			//if(rol.equals(info[2])) {
 				Client c = new Client(info[0],//fullname
-									info[1],//email
-									info[4],//adress
-									info[5]);//detail contact
+									info[1],//adress
+									info[2]);//detalles 
 				clients.add(c);
-			}
+			//}
 		}
 		return clients;
 	}
@@ -51,7 +52,7 @@ public class ClientDAO implements SettingsEmployee{
 	    boolean flag = false;
 
 	    for (int i = 0; i < clients.length; i++) {
-	        if (clients[i].split(";")[0].equals(c.getName()) && clients[i].split(";")[3].equals("Cliente")) {
+	        if (clients[i].split(";")[0].equals(c.getName())) {
 	            clients[i] = c_new.infoClient();
 	            flag = true;
 	        }
@@ -62,10 +63,35 @@ public class ClientDAO implements SettingsEmployee{
 	    file.writerFile("", true);
 
 	    for (int i = 0; i < clients.length; i++) {
-	        System.out.println(clients[i]);
 	        file.writerFile(clients[i], false);
 	    }
 
-	    return true;
+	    return true; 
 	}
+
+		public boolean validateFields(View_Clientes vc) {
+
+		boolean state = true;
+
+		if(file.validateByER(vc.txt_Name.getText(), ERNamesCLient)) {
+			
+		}else {
+			vc.txt_Name.setBackground(Color.RED);
+			state = false;
+		}
+//		if(file.validateByER(vc.txt_ContactDetails.getText(), EREmailClient)){
+//
+//		}else {
+//			vc.txt_ContactDetails.setBackground(Color.RED);
+//			state = false;
+//		}
+		if(file.validateByER(vc.txt_Address.getText(), ERAddress)) {
+			vc.txt_Address.setBackground(Color.WHITE);
+		}else {
+			vc.txt_Address.setBackground(Color.RED);
+			state = false;
+		}
+		return state;
+	}
+
 }

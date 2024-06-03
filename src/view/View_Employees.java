@@ -34,6 +34,7 @@ public class View_Employees extends JFrame {
 	public JButton btn_save;
 	public JComboBox cmb_role;
 	private JLabel lbl_icon_Show_Lock;
+	public JButton btnAddEmployer;
 
 	public View_Employees() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(View_Employees.class.getResource("/view_multimedia/badge_24dp_FILL0_wght400_GRAD0_opsz24.png")));
@@ -135,6 +136,11 @@ public class View_Employees extends JFrame {
 		lbl_iconSave.setIcon(new ImageIcon(View_Employees.class.getResource("/view_multimedia/sav.png")));
 		lbl_iconSave.setBounds(661, 205, 50, 50);
 		contentPane.add(lbl_iconSave);
+		
+		btnAddEmployer = new JButton("");
+		btnAddEmployer.setIcon(new ImageIcon(View_Employees.class.getResource("/view_multimedia/agregar-usuario.png")));
+		btnAddEmployer.setBounds(721, 205, 53, 50);
+		contentPane.add(btnAddEmployer);
 		
 		Logic_view_employees lve= new Logic_view_employees(this);
 		

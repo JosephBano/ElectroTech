@@ -52,7 +52,7 @@ public class View_Clientes extends JFrame {
 	    txt_Name = new JTextField();
 	    txt_Name.setBackground(new Color(255, 255, 255));
 	    txt_Name.setBounds(283, 68, 192, 25);
-	    txt_Name.setForeground(new Color(192, 192, 192));
+	    txt_Name.setForeground(new Color(0, 0, 0));
 	    txt_Name.setFont(new Font("Times New Roman", Font.BOLD, 12));
 	    txt_Name.setBorder(null);
 	    contentPane.add(txt_Name);
@@ -64,9 +64,9 @@ public class View_Clientes extends JFrame {
 	    contentPane.add(lbl_Address);
 
 	    txt_Address = new JTextField();
-	    txt_Address.setForeground(new Color(192, 192, 192));
+	    txt_Address.setForeground(new Color(0, 0, 0));
 	    txt_Address.setBackground(new Color(255, 255, 255));
-	    txt_Address.setBounds(283, 139, 192, 25);
+	    txt_Address.setBounds(283, 136, 192, 25);
 	    txt_Address.setFont(new Font("Times New Roman", Font.BOLD, 12));
 	    txt_Address.setBorder(null);
 	    contentPane.add(txt_Address);
@@ -78,7 +78,7 @@ public class View_Clientes extends JFrame {
 	    contentPane.add(lbl_ContactDetails);
 
 	    txt_ContactDetails = new JTextField();
-	    txt_ContactDetails.setForeground(new Color(192, 192, 192));
+	    txt_ContactDetails.setForeground(new Color(0, 0, 0));
 	    txt_ContactDetails.setBackground(new Color(255, 255, 255));
 	    txt_ContactDetails.setBounds(283, 211, 192, 25);
 	    txt_ContactDetails.setFont(new Font("Times New Roman", Font.BOLD, 12));

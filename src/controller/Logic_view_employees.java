@@ -12,6 +12,7 @@ import java.util.Set;
 import libreríaVersion2.FIles;
 import model.Employees;
 import model.EmployeesDAO;
+import view.View_AñadirEmpleados;
 import view.View_Employees;
 
 public class Logic_view_employees implements ActionListener{
@@ -28,6 +29,7 @@ public class Logic_view_employees implements ActionListener{
 		this.ve.btn_change_role.addActionListener(this);
 		this.ve.btn_save.addActionListener(this);
 		this.ve.cmb_employees.addActionListener(this);
+		this.ve.btnAddEmployer.addActionListener(this);
 		loadNames();
 		loadRoles();
 		dataEmployee();
@@ -112,6 +114,11 @@ public class Logic_view_employees implements ActionListener{
 					setData(em);
 				}
 			}
+		} else if (e.getSource() == ve.btnAddEmployer) {
+			// Implementar funcionalidad para agregar empleado	
+			View_AñadirEmpleados vae = new View_AñadirEmpleados();
+			vae.setVisible(true);
+			
 		}
 	}
 

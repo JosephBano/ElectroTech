@@ -27,23 +27,27 @@ public class Logic_view_client implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==vc.btn_Add) {
-			String name = vc.txt_Name.getText();
-			//String email = vc.txt_Email.getText();
-			String adress = vc.txt_Address.getText();
-			String detail = vc.txt_ContactDetails.getText();
+
+			if(cdao.validateFields(vc) == true) {
+				
+				String name = vc.txt_Name.getText();
+				//String email = vc.txt_Email.getText();
+				String adress = vc.txt_Address.getText();
+				String detail = vc.txt_ContactDetails.getText();
+				try {
+					cdao.writeClient(new Client(name,adress,detail));
+					JOptionPane.showMessageDialog(vc, "Cliente agregado con exito!");
+					resetFields();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else {
+				JOptionPane.showMessageDialog(vc, "Campos Incorrectos");
+			}		
 			
-			try {
-				cdao.writeClient(new Client(name,"client@client.com", adress, detail));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(vc, "Cliente agregado con exito!");
-			resetFields();
 		}
 		else if(e.getSource()==vc.btn_Update) {
-
-			
 			try {
 				List<Client> clients = cdao.listClient("Cliente");
 				boolean flag = false;
@@ -55,13 +59,19 @@ public class Logic_view_client implements ActionListener{
 				
 				for(Client c: clients) {
 					if(c.getName().equals(name)) {
-						cdao.updateClient(c, new Client(name,"client@client.com", adress, detail));
+
+						if(cdao.validateFields(vc) == true) {
+
+						cdao.updateClient(c, new Client(name, adress, detail));
 						JOptionPane.showMessageDialog(vc, "El cliente se ha actualizado con exito");
 						resetFields();
 						flag = true;
-					}
-					if(flag == false) {
+						}else{
+							JOptionPane.showMessageDialog(vc, "Campos Incorrectos");
+						}
+					}else if(flag == false) {
 						JOptionPane.showMessageDialog(vc, "No se han encontrado las credenciales para actualizar!");
+						break;
 					}
 				}
 				
