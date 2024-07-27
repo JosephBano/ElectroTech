@@ -40,30 +40,33 @@ public class Logic_view_addEmployers implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==vae.btnAgregar) {
-			String name = vae.txtNombre.getText();
-			String funcion = (String) vae.cmb_rol.getSelectedItem();
-			String email = vae.txtCorreo.getText();
-			String phone = vae.txtTelefono.getText();
-			String psw = vae.txtClave.getText();
-			boolean flag = true;
-			
-			for(Employees em: employees) {
-				if(em.getEmail().equals(email)) {
-					JOptionPane.showMessageDialog(vae, "Este correo electronico ya ha sido registrado!");
-					flag = false;
+			System.out.println("hola");
+			//if(edao.validateFields(vae) == true) {
+				String name = vae.txtNombre.getText();
+				String funcion = (String) vae.cmb_rol.getSelectedItem();
+				String email = vae.txtCorreo.getText();
+				String phone = vae.txtTelefono.getText();
+				String psw = vae.txtClave.getText();
+				boolean flag = true;
+				
+				for(Employees em: employees) {
+					if(em.getEmail().equals(email)) {
+						JOptionPane.showMessageDialog(vae, "Este correo electronico ya ha sido registrado!");
+						flag = false;
+					}
 				}
-			}
-			
-			if(flag) {
-				try {
-					edao.writeEmployee(new Employees(name, email, psw, funcion, phone));
-					JOptionPane.showMessageDialog(vae, "Empleado agregado correctamente!");
-					resetFields();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				
+				if(flag) {
+					try {
+						edao.writeEmployee(new Employees(name, email, psw, funcion, phone));
+						JOptionPane.showMessageDialog(vae, "Empleado agregado correctamente!");
+						resetFields();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
-			}
+			//}
 		}
 	}
 	

@@ -5,3 +5,5 @@ RAM 16gb;Memoria RAM 16GB de 3600mhz;75.21;100;1805359401;
 
 Procesador R5 3600;Procesador de 8 nucleos y 16 hilos 3.2hz - 3.9hz;150.00;25;987372884;
 
+Mouse;Mouse inalambrico;8.50;0;22918169;
+

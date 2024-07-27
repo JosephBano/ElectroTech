@@ -1,75 +1,45 @@
 package model;
 
-import java.io.File;
-import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import libreríaVersion2.FIles;
+import controller.Parametrizable;
 
-public class EmployeesDAO implements SettingsEmployee{
-	private FIles file;
+public class EmployeesDAO implements Parametrizable{
 
 	public EmployeesDAO() {
 		super();
 		// TODO Auto-generated constructor stub
-		file=new FIles(mainPath);
-		file.create(0);
 	}
 	
-	public boolean writeEmployee(Employees e) throws IOException {
-		file.setFile(new File(mainPath,information));
-		return file.writerFile(e.infoEmployee()+"\n", false);
+	public boolean insertEmployee(Employees e) {
+		return conn.setQuery(String.format("INSERT INTO `electrotech`.`employee` (`name`, `email`, `psw`, `dni`, code, `date_join`) VALUES ('%s', '%s', '%s', '%s', 0, '%s');"
+				,e.getName()
+				,e.getEmail()
+				,e.getPSW()
+				,e.getDNI()
+				,e.getCode()
+				,e.getDate()));
 	}
 	
-	public List<Employees> readEmployee() throws IOException{
-		//Almacenar los datos de cada persona encontrada
-		List<Employees> employees=new ArrayList<>();
-		file.setFile(new File(mainPath,information));
-		//leer los datos del archivo
-		String [] data=file.readerFile().split("\n");
+	public List<Employees> listEmployees() throws SQLException{
+		List<Employees> employees = new ArrayList();
 		
-		for(String d:data) {
-			if (d.trim().isEmpty()) {
-	            continue;
-			}
-			
-			String [] info=d.split(";");
-			
-			Employees e=new Employees(info[0],
-										info[1],
-										info[2],
-										info[3],
-										info[4]);
-			
-			employees.add(e);
+		ResultSet res = conn.getQuery("SELECT * FROM electrotech.employee WHERE code = 0;");
+		while(res.next()) {
+			employees.add(new Employees(
+					res.getInt(1),
+					res.getString(2),
+					res.getString(3),
+					res.getString(4), 
+					res.getString(5),
+					res.getInt(6),
+					res.getString(7)));
 		}
+		conn.closeConn();
 		return employees;
 	}
 	
-	public boolean replaceRol(Employees e, Employees e_new) throws IOException {
-		file.setFile(new File(mainPath,information));
-		String [] employees = file.readerFile().split("\n");
-		boolean flag = false;
-		
-		for(int i = 0; i < employees.length; i++) {
-			if (employees[i].trim().isEmpty()) {
-	            continue;
-			}
-			if(employees[i].split(";")[1].equals(e.getEmail())) {
-				employees[i] = e_new.infoEmployee();
-				flag = true;
-			}
-		}
-		
-		if(!flag) return false;
-		
-		file.writerFile("", true);
-		
-		for (int i = 0; i < employees.length; i++) {
-	        file.writerFile(employees[i], false);
-	    }
-		
-		return true;
-	}
 }

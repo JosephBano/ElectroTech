@@ -1,6 +1,7 @@
 package controller;
 
 import view.View_Clientes;
+
 import view.View_Employees;
 import view.View_Gerente;
 import view.view_inventario;
@@ -17,14 +18,14 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import libreríaVersion2.FIles;
+import libreriaVersion3.FileS;
 import model.Employees;
 import model.EmployeesDAO;
 
 public class Logic_view_login implements ActionListener{
 	
 	private View_Login vm;
-	private FIles files=new FIles("");
+	private FileS files=new FileS("");
 	private EmployeesDAO edao=new EmployeesDAO();
 	private View_Employees ve;
 	private view_inventario vi;

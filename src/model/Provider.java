@@ -1,17 +1,20 @@
 package model;
 
-import libreríaVersion2.generic;
+import libreriaVersion3.Generic; 
 
 public class Provider {
 
-	private generic<String, Long> dta;
-	private generic<Integer, String> dta1;
+	private Generic<String, Long> dta;
+	private Generic<Integer, String> dta1;
 	
-	public Provider(String fullname, String email, long dni, int code, long phone, String socialReason) {
-		dta = new generic<>(fullname, email, dni, phone);
-		dta1 = new generic<>(code, socialReason);
+	public Provider(int id,String fullname, String email, long dni, int code, long phone, String socialReason) {
+		dta = new Generic<>(fullname, email, dni, phone);
+		dta1 = new 	Generic<>(id, code, socialReason);
 	}
 	
+	public void setId(int id) {
+        dta1.setAttribute1(id);
+    }
 	public void setFullname(String fullname) {
 		dta.setAttribute1(fullname);
 	}
@@ -29,11 +32,14 @@ public class Provider {
 	}
 	
 	public void setCode(int code) {
-		dta1.setAttribute1(code);
+		dta1.setAttribute2(code);
 	}
 	
 	public void setSocialReason(String socialReason) {
 		dta1.setAttribute3(socialReason);
+	}
+	public int getId() {
+        return dta1.getAttribute1();
 	}
 	
 	public String getFullname() {
@@ -53,20 +59,10 @@ public class Provider {
 	}
 	
 	public int getCode() {
-		return dta1.getAttribute1();
+		return dta1.getAttribute2();
 	}
 	
 	public String getSocialReason() {
 		return dta1.getAttribute3();
-	}
-	
-	public String infoProvider() {
-		return String.format("%s;%s;%d;%d;%d;%s;\n", 
-				getFullname(), 
-				getEmail(), 
-				getDni(), 
-				getCode(), 
-				getPhone(), 
-				getSocialReason());
 	}
 }

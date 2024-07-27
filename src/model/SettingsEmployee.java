@@ -19,4 +19,5 @@ public interface SettingsEmployee {
 	public static String EREmailProvider = "^[\\w._%+-]+@(gmail|hotmail|outlook|est|ups)\\.(com|ec|ups\\.edu\\.ups|ec)$";
 	public static String ERRuc = "^(\\d{10})(001)$";
 	public static String ERPhone = "^([\\(]?0[2-7][\\)]?[\\s-]?\\d{4}[\\s-]?\\d{3})$";
+	public static String ERPhonenumber = "^[09][0-9]{8}$";
 }
