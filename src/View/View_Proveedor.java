@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.awt.EventQueue;
 
@@ -19,7 +19,7 @@ import javax.swing.DropMode;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.MatteBorder;
 
-import controller.Logic_view_proveedor;
+import Controller.Logic_view_proveedor;
 
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;

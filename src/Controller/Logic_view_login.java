@@ -1,13 +1,4 @@
-package controller;
-
-import view.View_Clientes;
-
-import view.View_Employees;
-import view.View_Gerente;
-import view.view_inventario;
-import view.View_Login;
-import view.View_Proveedor;
-import view.View_ventas;
+package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,9 +9,16 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import Model.Employees;
+import Model.EmployeesDAO;
+import View.View_Clientes;
+import View.View_Employees;
+import View.View_Gerente;
+import View.View_Login;
+import View.View_Proveedor;
+import View.View_ventas;
+import View.view_inventario;
 import libreriaVersion3.FileS;
-import model.Employees;
-import model.EmployeesDAO;
 
 public class Logic_view_login implements ActionListener{
 	

@@ -1,11 +1,11 @@
-package model;
+package Model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.Parametrizable;
+import Controller.Parametrizable;
 
 public class EmployeesDAO implements Parametrizable{
 

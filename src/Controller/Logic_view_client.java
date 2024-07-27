@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,9 +8,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.Client;
-import model.ClientDAO;
-import view.View_Clientes;
+import Model.Client;
+import Model.ClientDAO;
+import View.View_Clientes;
 
 public class Logic_view_client implements ActionListener{
 	

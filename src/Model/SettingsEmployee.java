@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 public interface SettingsEmployee {
 	public final String mainPath="src/Documentos";

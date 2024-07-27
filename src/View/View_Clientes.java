@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import controller.Logic_view_client;
+import Controller.Logic_view_client;
 
 import java.awt.Color;
 import java.awt.Font;

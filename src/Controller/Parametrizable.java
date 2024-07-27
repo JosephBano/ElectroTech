@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import libreriaVersion3.Conexion;
 

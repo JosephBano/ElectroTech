@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.Logic_view_login;
+import Controller.Logic_view_login;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;

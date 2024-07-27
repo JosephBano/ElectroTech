@@ -1,6 +1,6 @@
-package model;
+package Model;
 
-import controller.Parametrizable;
+import Controller.Parametrizable;
 
 public class ProviderDAO implements Parametrizable{
 

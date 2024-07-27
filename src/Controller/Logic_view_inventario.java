@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,12 +7,12 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.Employees;
-import model.Product;
-import model.ProductDAO;
-import model.Provider;
-import model.ProviderDAO;
-import view.view_inventario;
+import Model.Employees;
+import Model.Product;
+import Model.ProductDAO;
+import Model.Provider;
+import Model.ProviderDAO;
+import View.view_inventario;
 
 public class Logic_view_inventario implements ActionListener{
 	

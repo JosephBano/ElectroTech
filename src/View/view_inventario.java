@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-import controller.Logic_view_inventario;
+import Controller.Logic_view_inventario;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;

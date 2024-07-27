@@ -1,16 +1,16 @@
-package controller;
+package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import view.View_Employees;
-import view.View_Gerente;
-import view.View_ventas;
-import view.View_Proveedor;
-import view.View_Clientes;
-import view.view_inventario;
+import View.View_Clientes;
+import View.View_Employees;
+import View.View_Gerente;
+import View.View_Proveedor;
+import View.View_ventas;
+import View.view_inventario;
 
 public class Logic_view_gerente implements ActionListener{
 	private View_Gerente vg;

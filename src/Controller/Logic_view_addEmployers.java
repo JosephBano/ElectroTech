@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 
 import java.awt.event.ActionEvent;
@@ -8,9 +8,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.Employees;
-import model.EmployeesDAO;
-import view.View_addEmployers;
+import Model.Employees;
+import Model.EmployeesDAO;
+import View.View_addEmployers;
 
 public class Logic_view_addEmployers implements ActionListener{
 	

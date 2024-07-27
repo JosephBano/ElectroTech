@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
 
-import controller.Logic_view_addEmployers;
+import Controller.Logic_view_addEmployers;
 
 import javax.swing.ImageIcon;
 

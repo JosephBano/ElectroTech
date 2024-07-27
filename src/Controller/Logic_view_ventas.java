@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,11 +11,11 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import model.Client;
-import model.ClientDAO;
-import model.Product;
-import model.ProductDAO;
-import view.View_ventas;
+import Model.Client;
+import Model.ClientDAO;
+import Model.Product;
+import Model.ProductDAO;
+import View.View_ventas;
 
 public class Logic_view_ventas implements ActionListener {
 	private View_ventas vv;

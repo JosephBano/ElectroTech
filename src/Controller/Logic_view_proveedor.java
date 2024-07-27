@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,9 +7,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.Provider;
-import model.ProviderDAO;
-import view.View_Proveedor;
+import Model.Provider;
+import Model.ProviderDAO;
+import View.View_Proveedor;
 
 public class Logic_view_proveedor implements ActionListener{
 	
