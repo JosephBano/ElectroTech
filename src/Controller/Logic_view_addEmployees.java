@@ -4,7 +4,10 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -12,25 +15,23 @@ import Model.Employees;
 import Model.EmployeesDAO;
 import View.View_addEmployers;
 
-public class Logic_view_addEmployers implements ActionListener{
+public class Logic_view_addEmployees implements ActionListener, Parametrizable{
 	
 	private View_addEmployers vae;
-	private EmployeesDAO edao = new EmployeesDAO();
 	private List<Employees> employees;
 	
-	public Logic_view_addEmployers(View_addEmployers vae_) {
+	public Logic_view_addEmployees(View_addEmployers vae_) {
 		this.vae = vae_;
 		this.vae.btnAgregar.addActionListener(this);
 		this.vae.cmb_rol.addActionListener(this);
 		
-		this.vae.cmb_rol.addItem("Admin");
-		this.vae.cmb_rol.addItem("Cliente");
-		this.vae.cmb_rol.addItem("Inventario");
-		this.vae.cmb_rol.addItem("Proveedor");
+		for(String s: userRoll) {
+			vae.cmb_rol.addItem(s);
+		}
 		
 		try {
-			employees = edao.readEmployee();
-		} catch (IOException e) {
+			employees=edao.listEmployees();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -43,9 +44,9 @@ public class Logic_view_addEmployers implements ActionListener{
 			System.out.println("hola");
 			//if(edao.validateFields(vae) == true) {
 				String name = vae.txtNombre.getText();
-				String funcion = (String) vae.cmb_rol.getSelectedItem();
+				int code = vae.cmb_rol.getSelectedIndex() + 2;
 				String email = vae.txtCorreo.getText();
-				String phone = vae.txtTelefono.getText();
+				String dni = vae.txtDNI.getText();
 				String psw = vae.txtClave.getText();
 				boolean flag = true;
 				
@@ -57,14 +58,9 @@ public class Logic_view_addEmployers implements ActionListener{
 				}
 				
 				if(flag) {
-					try {
-						edao.writeEmployee(new Employees(name, email, psw, funcion, phone));
-						JOptionPane.showMessageDialog(vae, "Empleado agregado correctamente!");
-						resetFields();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					edao.insertEmployee(new Employees(0, name, email, psw, dni, code, new Date().toString()));
+					JOptionPane.showMessageDialog(vae, "Empleado agregado correctamente!");
+					resetFields();
 				}
 			//}
 		}
@@ -73,7 +69,7 @@ public class Logic_view_addEmployers implements ActionListener{
 	public void resetFields() {
 		vae.txtNombre.setText("");
 		vae.txtCorreo.setText("");
-		vae.txtTelefono.setText("");
+		vae.txtDNI.setText("");
 		vae.txtClave.setText("");
 	}
 

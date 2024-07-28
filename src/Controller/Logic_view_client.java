@@ -3,6 +3,7 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +13,10 @@ import Model.Client;
 import Model.ClientDAO;
 import View.View_Clientes;
 
-public class Logic_view_client implements ActionListener{
+public class Logic_view_client implements ActionListener, Parametrizable{
 	
 	private View_Clientes vc;
-	private ClientDAO cdao = new ClientDAO();
+	private Client client = new Client();
 
 	public Logic_view_client(View_Clientes vc_) {
 		this.vc = vc_;
@@ -28,20 +29,16 @@ public class Logic_view_client implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getSource()==vc.btn_Add) {
 
-			if(cdao.validateFields(vc) == true) {
+			String name = vc.txt_Name.getText();
+			String address = vc.txt_Address.getText();
+			String detail = vc.txt_ContactDetails.getText();
+			client.setName(name);
+			client.setEmail(detail);
+			client.setAddress(address);
 				
-				String name = vc.txt_Name.getText();
-				//String email = vc.txt_Email.getText();
-				String adress = vc.txt_Address.getText();
-				String detail = vc.txt_ContactDetails.getText();
-				try {
-					cdao.writeClient(new Client(name,adress,detail));
-					JOptionPane.showMessageDialog(vc, "Cliente agregado con exito!");
-					resetFields();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+			if(cdao.insertClient(client)) {
+				JOptionPane.showMessageDialog(vc, "Cliente agregado con exito!");
+				resetFields();	
 			}else {
 				JOptionPane.showMessageDialog(vc, "Campos Incorrectos");
 			}		
@@ -49,19 +46,19 @@ public class Logic_view_client implements ActionListener{
 		}
 		else if(e.getSource()==vc.btn_Update) {
 			try {
-				List<Client> clients = cdao.listClient("Cliente");
+				
+				List<Client> clients = cdao.listClient();
 				boolean flag = false;
 				
 				String name = vc.txt_Name.getText();
-				//String email = vc.txt_Email.getText();
-				String adress = vc.txt_Address.getText();
-				String detail = vc.txt_ContactDetails.getText();
+				String address = vc.txt_Address.getText();
+				String detail = vc.txt_ContactDetails.getText();				
 				
 				for(Client c: clients) {
-					if(c.getName().equals(name)) {
-						if(cdao.validateFields(vc) == true) {
-
-							cdao.updateClient(c, new Client(name, adress, detail));///////////////////////////
+					System.out.println(c.getEmail() + detail);
+					
+					if(c.getEmail().equals(detail)) {
+						if(cdao.updateClient(new Client(c.getID(), name, detail, address))){
 							JOptionPane.showMessageDialog(vc, "El cliente se ha actualizado con exito");
 							resetFields();
 							flag = true;
@@ -75,7 +72,7 @@ public class Logic_view_client implements ActionListener{
 					JOptionPane.showMessageDialog(vc, "No se han encontrado las credenciales para actualizar!");
 				}
 				
-			} catch (IOException e1) {
+			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}

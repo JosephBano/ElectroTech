@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
 
-import Controller.Logic_view_addEmployers;
+import Controller.*;
 
 import javax.swing.ImageIcon;
 
@@ -25,7 +25,7 @@ public class View_addEmployers extends JFrame {
  public JTextField txtNombre;
  public JTextField txtCorreo;
  public JTextField txtClave;
- public JTextField txtTelefono;
+ public JTextField txtDNI;
  public JLabel lbl_empleados;
  public JButton btnAgregar;
  public JComboBox cmb_rol;
@@ -87,19 +87,19 @@ public class View_addEmployers extends JFrame {
   lblFuncion.setForeground(new Color(255, 255, 255)); // texto azul
   contentPane.add(lblFuncion);
 
-  JLabel lblTelefono = new JLabel("Teléfono");
+  JLabel lblTelefono = new JLabel("DNI");
   lblTelefono.setBounds(334, 237, 53, 14);
   lblTelefono.setFont(new Font("Times New Roman", Font.BOLD, 13)); // fuente Cambria
   lblTelefono.setForeground(new Color(255, 255, 255)); // texto azul
   contentPane.add(lblTelefono);
 
-  txtTelefono = new JTextField();
-  txtTelefono.setForeground(new Color(255, 255, 255));
-  txtTelefono.setBounds(334, 250, 169, 17);
-  txtTelefono.setBorder(null); // borde magenta
-  txtTelefono.setOpaque(false);
-  contentPane.add(txtTelefono);
-  txtTelefono.setColumns(10);
+  txtDNI = new JTextField();
+  txtDNI.setForeground(new Color(255, 255, 255));
+  txtDNI.setBounds(334, 250, 169, 17);
+  txtDNI.setBorder(null); // borde magenta
+  txtDNI.setOpaque(false);
+  contentPane.add(txtDNI);
+  txtDNI.setColumns(10);
 
   btnAgregar = new JButton("Agregar");
   btnAgregar.setForeground(new Color(255, 255, 255));
@@ -150,7 +150,7 @@ public class View_addEmployers extends JFrame {
   cmb_rol.setBounds(334, 176, 169, 22);
   contentPane.add(cmb_rol);
   
-  Logic_view_addEmployers lvae = new Logic_view_addEmployers(this);
+  Logic_view_addEmployees lvae = new Logic_view_addEmployees(this);
  }
 }
 

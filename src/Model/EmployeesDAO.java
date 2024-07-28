@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.PreparedStatement;
+
+import libreriaVersion3.*;
 
 import Controller.Parametrizable;
 
@@ -15,7 +18,7 @@ public class EmployeesDAO implements Parametrizable{
 	}
 	
 	public boolean insertEmployee(Employees e) {
-		return conn.setQuery(String.format("INSERT INTO `electrotech`.`employee` (`name`, `email`, `psw`, `dni`, code, `date_join`) VALUES ('%s', '%s', '%s', '%s', 0, '%s');"
+		return conn.setQuery(String.format("INSERT INTO `electrotech`.`employee` (`name`, `email`, `psw`, `dni`, code, `date_join`) VALUES ('%s', '%s', '%s', '%s', %d, '%s');"
 				,e.getName()
 				,e.getEmail()
 				,e.getPSW()
@@ -24,10 +27,30 @@ public class EmployeesDAO implements Parametrizable{
 				,e.getDate()));
 	}
 	
+	public List<Employees> validateLogin(String email, String psw) throws SQLException {
+		List<Employees> employees = new ArrayList<>();
+		
+		ResultSet res = conn.getQuery(String.format("SELECT * FROM electrotech.employee WHERE email='%s' AND psw='%s';",
+				email,
+				psw));
+		
+		while(res.next()) {
+			employees.add(new Employees(res.getInt("id"),
+										res.getString("name"),
+										res.getString("email"),
+										res.getString("psw"),
+										res.getString("dni"),
+										res.getInt("code"),
+										res.getString("date_join")));
+		}
+		conn.closeConn();
+		return employees;
+	}
+	
 	public List<Employees> listEmployees() throws SQLException{
 		List<Employees> employees = new ArrayList();
 		
-		ResultSet res = conn.getQuery("SELECT * FROM electrotech.employee WHERE code = 0;");
+		ResultSet res = conn.getQuery("SELECT * FROM electrotech.employee WHERE code NOT IN(0, 1)");
 		while(res.next()) {
 			employees.add(new Employees(
 					res.getInt(1),
@@ -42,4 +65,15 @@ public class EmployeesDAO implements Parametrizable{
 		return employees;
 	}
 	
+	public boolean replaceRol(Employees e) {
+        return conn.setQuery(String.format("UPDATE electrotech.employee SET code='%s' WHERE id = %d;",
+                e.getCode(),
+                e.getID()));
+    }
+	
+	public boolean restartPSW(Employees e) {
+        return conn.setQuery(String.format("UPDATE electrotech.employee SET psw='%s' WHERE id = %d;",
+                e.getPSW(),
+                e.getID()));
+    }
 }

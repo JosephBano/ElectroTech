@@ -4,12 +4,14 @@ import libreriaVersion3.Generic;
 
 public class Provider {
 
-	private Generic<String, Long> dta;
+	private Generic<String, String> dta;
 	private Generic<Integer, String> dta1;
 	
-	public Provider(int id,String fullname, String email, long dni, int code, long phone, String socialReason) {
+	public Provider(int id,String fullname, String email, String dni, String code, String phone, String socialReason) {
 		dta = new Generic<>(fullname, email, dni, phone);
-		dta1 = new 	Generic<>(id, code, socialReason);
+		dta1 = new Generic<>(id);
+		dta1.setAttribute3(code);
+		dta1.setAttribute4(socialReason);
 	}
 	
 	public void setId(int id) {
@@ -23,20 +25,20 @@ public class Provider {
 		dta.setAttribute2(email);
 	}
 	
-	public void setDni(long dni) {
+	public void setDni(String dni) {
 		dta.setAttribute3(dni);
 	}
 	
-	public void setPhone(long phone) {
+	public void setPhone(String phone) {
 		dta.setAttribute4(phone);
 	}
 	
-	public void setCode(int code) {
-		dta1.setAttribute2(code);
+	public void setCode(String code) {
+		dta1.setAttribute3(code);
 	}
 	
 	public void setSocialReason(String socialReason) {
-		dta1.setAttribute3(socialReason);
+		dta1.setAttribute4(socialReason);
 	}
 	public int getId() {
         return dta1.getAttribute1();
@@ -50,19 +52,19 @@ public class Provider {
 		return dta.getAttribute2();
 	}
 	
-	public long getDni() {
+	public String getDni() {
 		return dta.getAttribute3();
 	}
 	
-	public long getPhone() {
+	public String getPhone() {
 		return dta.getAttribute4();
 	}
 	
-	public int getCode() {
-		return dta1.getAttribute2();
+	public String getCode() {
+		return dta1.getAttribute3();
 	}
 	
 	public String getSocialReason() {
-		return dta1.getAttribute3();
+		return dta1.getAttribute4();
 	}
 }

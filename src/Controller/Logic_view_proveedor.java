@@ -3,6 +3,7 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -11,23 +12,14 @@ import Model.Provider;
 import Model.ProviderDAO;
 import View.View_Proveedor;
 
-public class Logic_view_proveedor implements ActionListener{
+public class Logic_view_proveedor implements ActionListener, Parametrizable{
 	
 	private View_Proveedor vp;
-	private List<Provider> providers;
-	private ProviderDAO pdao = new ProviderDAO();
 	
 	public Logic_view_proveedor(View_Proveedor vp_) {
 		this.vp = vp_;
 		this.vp.btn_save.addActionListener(this);
 		this.vp.btn_close.addActionListener(this);
-		
-		try {
-			providers = pdao.listProviders("Providers");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	@Override
@@ -35,25 +27,22 @@ public class Logic_view_proveedor implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getSource()==vp.btn_save) {
 
-			if(pdao.validateFields(vp) == true){
-
-				String fullname = vp.txt_Names.getText();
-				String email = vp.txt_Email.getText();
-				long dni = Long.parseLong(vp.txt_RUC.getText());
-				int code = Integer.parseInt(vp.txt_Code.getText());
-				long phone = Long.parseLong(vp.txt_Phone.getText());
-				String socialReason = vp.txt_SocialReason.getText();
-				
-				try {
-					pdao.writeProduct(new Provider(fullname, email, dni, code, phone, socialReason));
-					JOptionPane.showMessageDialog(vp, "Proveedor agregado con exito!");
-					resetFields();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+			String fullname = vp.txt_Names.getText();
+			String email = vp.txt_Email.getText();
+			String dni = vp.txt_RUC.getText();
+			String code = vp.txt_Code.getText();
+			String phone = vp.txt_Phone.getText();
+			String socialReason = vp.txt_SocialReason.getText();
+			
+			Provider p = new Provider(0, fullname, email, dni, code, phone, socialReason);
+			
+			if(prdao.insertProvider(p)){
+				JOptionPane.showConfirmDialog(vp, "El proveedor se ha registrado exitosamente!");
+				resetFields();
 			}
-
+			else {
+				JOptionPane.showConfirmDialog(vp, "Esta accion no se ha podido completar");
+			}
 			
 		} else if (e.getSource() == vp.btn_close) {
 			vp.dispose();
@@ -67,6 +56,10 @@ public class Logic_view_proveedor implements ActionListener{
 		vp.txt_Code.setText("");
 		vp.txt_Phone.setText("");
 		vp.txt_SocialReason.setText("");
+	}
+	
+	private boolean validateFields() {
+		return true;
 	}
 
 }

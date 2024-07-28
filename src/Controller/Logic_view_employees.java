@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,13 +16,10 @@ import Model.Employees;
 import Model.EmployeesDAO;
 import View.View_Employees;
 import View.View_addEmployers;
-import libreríaVersion2.FIles;
+import libreriaVersion3.*;
 
-public class Logic_view_employees implements ActionListener{
+public class Logic_view_employees implements ActionListener, Parametrizable{
 	private View_Employees ve;
-	private FIles file = new FIles("");
-	private EmployeesDAO edao = new EmployeesDAO();
-	private Employees E = new Employees();
 	private List<Employees> employees;
 	
 	public Logic_view_employees(View_Employees ve) {
@@ -34,69 +32,60 @@ public class Logic_view_employees implements ActionListener{
 		this.ve.cmb_role.addActionListener(this);
 		this.ve.btn_resetpsw.addActionListener(this);
 		
-		ve.cmb_role.addItem("Admin");
-		ve.cmb_role.addItem("Proveedor");
-		ve.cmb_role.addItem("Cliente");
-		ve.cmb_role.addItem("Ventas");
+		for(String s: userRoll) {
+			ve.cmb_role.addItem(s);
+		}
 		
 		try {
-			employees = edao.readEmployee();
+			employees=edao.listEmployees();
 			
 			for(Employees e: employees) {
-				this.ve.cmb_employees.addItem(e.getName());
+				ve.cmb_employees.addItem(e.getName());
 			}
-			
-		} catch (IOException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		Employees em_aux = employees.get(ve.cmb_employees.getSelectedIndex());
+		ve.cmb_role.setSelectedIndex(em_aux.getCode()-2);
 		
 	}
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == ve.btn_show_password) {
 			for (Employees em : employees) {
 				if (em.getName().equals(ve.cmb_employees.getSelectedItem())) {
-					ve.txt_password.setText(em.getPassword());
+					ve.txt_password.setText(em.getPSW());
 				}
 			}
 			ve.lbl_password.setVisible(true);
 			ve.txt_password.setVisible(true);
 		} else if (e.getSource() == ve.btn_change_role) {
 			// Implementar funcionalidad para cambiar rol
-			
-			try {
-				String name = (String) ve.cmb_employees.getSelectedItem();
-				String rol = (String) ve.cmb_role.getSelectedItem();
+				int index_employee = ve.cmb_employees.getSelectedIndex();	
+				int rol = ve.cmb_role.getSelectedIndex() + 2;
 				
-				for(Employees em: employees) {
-					if(em.getName().equals(name)) {
-							edao.replaceRol(em, new Employees(em.getName(), 
-															em.getEmail(), 
-															em.getPassword(), 
-															rol, 
-															em.getPhone()));
-					}
+				Employees employee = employees.get(index_employee); 
+				employee.setCode(rol);
+				
+				if(edao.replaceRol(employee)) {					
+					JOptionPane.showMessageDialog(ve, "Se ha cambiado de rol correctamente!");
 				}
-				JOptionPane.showMessageDialog(ve, "Se ha cambiado de rol correctamente!");
-				
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+				else {
+					JOptionPane.showMessageDialog(ve, "No se ha sido posible esta accion");
+				}
 			
 		} else if (e.getSource() == ve.cmb_employees) {
 			for (Employees em : employees) {
-			if (em.getName().equals(ve.cmb_employees.getSelectedItem())) {
-				setData(em);
+				if (em.getName().equals(ve.cmb_employees.getSelectedItem())) {
+					setData(em);
+					}
 				}
-			}
 			for (Employees em : employees) {
 				if (em.getName().equals(ve.cmb_employees.getSelectedItem())) {
-					ve.txt_password.setText(em.getPassword());
+					ve.txt_password.setText(em.getPSW());
 				}
 			}
 			
@@ -107,39 +96,20 @@ public class Logic_view_employees implements ActionListener{
 			
 		}
 		else if(e.getSource() == ve.btn_resetpsw) {
-			try {
-				String name = (String) ve.cmb_employees.getSelectedItem();
-				String psw = "pws123";
+			
+			int index_employee = ve.cmb_employees.getSelectedIndex();	
+			Employees employee = employees.get(index_employee); 
 				
-				for(Employees em: employees) {
-					if(em.getName().equals(name)) {
-							edao.replaceRol(em, new Employees(em.getName(), 
-															em.getEmail(), 
-															psw, 
-															em.getRole(), 
-															em.getPhone()));
-					}
-				}
+			employee.setPSW(employee.getDNI());				
+			ve.txt_password.setText(employee.getPSW());
+			
+			edao.restartPSW(employee);
 				
-				ve.txt_password.setText(psw);
-				
-				JOptionPane.showMessageDialog(ve, "Se ha reseteado la contraseña correctamente!");
-				
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			JOptionPane.showMessageDialog(ve, "Se ha reseteado la contraseña correctamente!");
 		}
 	}
 
 	private void setData(Employees e) {
-		for (int i = 0; i < ve.cmb_role.getItemCount(); i++) {
-			if (e.getRole().equals(ve.cmb_role.getItemAt(i).toString())) {
-				ve.cmb_role.setSelectedIndex(i);
-				break;
-			}
-		}
+		ve.cmb_role.setSelectedIndex(e.getCode()-2);
 	}
-	
-	
 }

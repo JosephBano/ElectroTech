@@ -12,10 +12,10 @@ public class Product {
 		this.dta1 = new Generic<>(stock, id_provider,id);
 	}
 	public void setId(int id) {
-        dta1.setAttribute2(id);
+        dta1.setAttribute3(id);
     }
     public void setProvider(int id_provider) {
-		dta1.setAttribute3(id_provider);
+		dta1.setAttribute2(id_provider);
 	}	
 	public void setName(String name) {
 		dta.setAttribute1(name);
@@ -41,10 +41,10 @@ public class Product {
 	public int getStock() {
 		return dta1.getAttribute1();
 	}
-	public long getProvider() {
-		return dta1.getAttribute3();
+	public int getProvider() {
+		return dta1.getAttribute2();
 	}
 	 public int getId() {
-        return dta1.getAttribute2();
+        return dta1.getAttribute3();
     }
 }
