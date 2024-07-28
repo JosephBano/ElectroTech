@@ -27,6 +27,8 @@ public class view_inventario extends JFrame {
 	public JComboBox comboBoxProveedor;
 	public JSpinner spinnerCantidad;
 	public JButton btnAgregar;
+	public JButton btn_noti;
+	public JButton btn_entry;
 
 
 	public view_inventario() {
@@ -119,6 +121,14 @@ public class view_inventario extends JFrame {
 		lblNewLabel.setBounds(146, 29, 85, 17);
 		lblNewLabel.setForeground(Color.BLUE); // texto azul
 		contentPane.add(lblNewLabel);
+		
+		btn_noti = new JButton("");
+		btn_noti.setBounds(316, 28, 46, 23);
+		contentPane.add(btn_noti);
+		
+		btn_entry = new JButton("Registro");
+		btn_entry.setBounds(10, 28, 89, 23);
+		contentPane.add(btn_entry);
 		
 		Logic_view_inventario lvi = new Logic_view_inventario(this);
 	}

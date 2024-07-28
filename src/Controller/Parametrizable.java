@@ -2,6 +2,7 @@ package Controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public interface Parametrizable {
 	//User of History Client View
 	public final Client client_history = new Client();
 	
+	//Notificaciones Low Stock process
+	public final List<Product> low_stock_products = new ArrayList<>();
+	
 	//ER para clientes
 	public static String ERNamesCLient = "^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\\s){3}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$";
 	public static String EREmailClient = "^[\\w._%+-]+@(gmail|hotmail|outlook|est|ups)\\.(com|ec|ups\\.edu\\.ups|ec)$";
@@ -40,13 +44,6 @@ public interface Parametrizable {
             "Encargado Proveedores",
             "Encargado Ventas"
         );
-	
-	public default boolean validateFields(View.View_Clientes vc){
-		if(vc.txt_Name.getText().matches(ERNamesCLient) && vc.txt_Address.getText().matches(ERAddress) && vc.txt_ContactDetails.getText().matches(EREmailClient)){
-            return true;
-        }
-        return false;
-	};
 	
 	public default String getDateFormatted() {
         LocalDate today = LocalDate.now();

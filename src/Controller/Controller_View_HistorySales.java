@@ -23,16 +23,10 @@ public class Controller_View_HistorySales implements Parametrizable{
 			List<Sale> sales = sdao.listSalesClient(client_history.getID());
 			List<Provider> providers = prdao.listProviders();
 			
-			DefaultListModel model = new DefaultListModel();
+			DefaultListModel<String> model = new DefaultListModel<>();
 			
 			
 			for(Sale s: sales) {
-				System.out.println(String.format("Cliente: %s; Product: %d; Amount: %d; Total: %.2f; Date: %s",
-						client_history.getName(),
-						s.getProductId(),
-						s.getAmount(),
-						s.getTotal(),
-						s.getDate()));
 				model.addElement(String.format("Cliente: %s; Product: %d; Amount: %d; Total: %.2f; Date: %s",
 						client_history.getName(),
 						s.getProductId(),

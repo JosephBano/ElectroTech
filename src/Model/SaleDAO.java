@@ -23,6 +23,23 @@ public class SaleDAO implements Parametrizable{
 				sale.getDate()));
 	}
 	
+	public List<Sale> listSales() throws SQLException {
+		List<Sale> employees = new ArrayList<>();
+		
+		ResultSet res = conn.getQuery("SELECT * FROM electrotech.sale;");
+		
+		while(res.next()) {
+			employees.add(new Sale(	res.getInt("id"),
+									res.getInt("id_client"),
+									res.getInt("id_product"),
+									res.getInt("amount"),
+									res.getDouble("total"),
+									res.getString("date")));
+		}
+		conn.closeConn();
+		return employees;
+	}
+	
 	public List<Sale> listSalesClient(int id_client) throws SQLException {
 		List<Sale> employees = new ArrayList<>();
 		
