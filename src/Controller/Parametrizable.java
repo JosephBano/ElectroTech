@@ -1,5 +1,7 @@
 package Controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,6 +18,9 @@ public interface Parametrizable {
 	public final ProductDAO pdao = new ProductDAO();
 	public final SaleDAO sdao = new SaleDAO();
 	public final ProviderDAO prdao = new ProviderDAO();
+	
+	//User of History Client View
+	public final Client client_history = new Client();
 	
 	//ER para clientes
 	public static String ERNamesCLient = "^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\\s){3}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$";
@@ -42,5 +47,11 @@ public interface Parametrizable {
         }
         return false;
 	};
+	
+	public default String getDateFormatted() {
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return today.format(formatter);
+    }
 	
 }

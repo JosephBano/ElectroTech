@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +79,7 @@ public class Logic_view_ventas implements ActionListener, Parametrizable {
 
 			if(pdao.updateStockProduct(product)) {
 								
-				Sale new_sale = new Sale(0, client.getID(), product.getId(), amount, total);				
+				Sale new_sale = new Sale(0, client.getID(), product.getId(), amount, total, getDateFormatted());				
 				sdao.insertSale(new_sale);
 				
 				JOptionPane.showMessageDialog(vv, "Producto vendido con exito!");
@@ -90,7 +92,7 @@ public class Logic_view_ventas implements ActionListener, Parametrizable {
 		}
     } 
 	
-	public void updateValues() {
+	private void updateValues() {
 				
 		int index_p = vv.cmb_productos.getSelectedIndex();
 		Product product = products.get(index_p);

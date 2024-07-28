@@ -5,7 +5,7 @@ import libreriaVersion3.Generic;
 public class Sale {
 
 	private Generic<Integer, Integer> dts;
-	private Generic<Double,?> dts1;
+	private Generic<Double,String> dts1;
 
 	public Sale() {
 		super();
@@ -14,9 +14,17 @@ public class Sale {
 		dts1 = new Generic<>();
 	}
 	
-	public Sale(int id, int id_client, int id_product, int amount, double total) {
+	public Sale(int id, int id_client, int id_product, int amount, double total, String date) {
 		dts = new Generic<>(id, id_client, id_product, amount);
-		dts1 = new Generic<>(total);
+		dts1 = new Generic<>(total, date);
+	}
+	
+	public String getDate() {
+		return dts1.getAttribute3();
+	}
+	
+	public void setDate(String date) {
+		dts1.setAttribute3(date);
 	}
 	
 	public int getId() {

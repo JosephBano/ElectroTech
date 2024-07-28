@@ -14,10 +14,11 @@ public class ClientDAO implements Parametrizable{
 	}
 	
 	public boolean insertClient(Client c) {
-		return conn.setQuery(String.format("INSERT INTO electrotech.client (name, email, address) VALUES ('%s', '%s', '%s');", 
+		return conn.setQuery(String.format("INSERT INTO electrotech.client (name, email, address, dni) VALUES ('%s', '%s', '%s', '%s');", 
 					c.getName(), 
 					c.getEmail(),
-					c.getAddress()));
+					c.getAddress(),
+					c.getDNI()));
 	}
 	
 	public List<Client> listClient() throws SQLException {
@@ -29,7 +30,24 @@ public class ClientDAO implements Parametrizable{
 			clients.add(new Client(	res.getInt("id"),
 									res.getString("name"),
 									res.getString("email"),
-									res.getString("address")));
+									res.getString("address"),
+									res.getString("dni")));
+		}
+		conn.closeConn();
+		return clients;
+	}
+	
+	public List<Client> searchClient(String dni) throws SQLException{
+		List<Client> clients = new ArrayList<>();
+		
+		ResultSet res = conn.getQuery(String.format("SELECT * FROM electrotech.client WHERE dni='%s';", dni));
+		
+		while(res.next()) {
+			clients.add(new Client(	res.getInt("id"),
+									res.getString("name"),
+									res.getString("email"),
+									res.getString("address"),
+									res.getString("dni")));
 		}
 		conn.closeConn();
 		return clients;
@@ -37,10 +55,11 @@ public class ClientDAO implements Parametrizable{
 
 
 	public boolean updateClient(Client c) {
-		return conn.setQuery(String.format("UPDATE electrotech.client SET name = '%s', email = '%s',  address = '%s' WHERE (id = '%d');",
+		return conn.setQuery(String.format("UPDATE electrotech.client SET name = '%s', email = '%s',  address = '%s', dni = '%s' WHERE (id = '%d');",
 					c.getName(), 
 					c.getEmail(),
 					c.getAddress(),
+					c.getDNI(),
 					c.getID()));
 	}
 	

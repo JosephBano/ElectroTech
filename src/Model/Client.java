@@ -5,7 +5,7 @@ import libreriaVersion3.Generic;
 public class Client {
 	
 	private Generic<Integer, String> dta;
-    private Generic<String, ?> dta2;
+    private Generic<String, String> dta2;
 
     public Client() {
  		super();
@@ -14,9 +14,17 @@ public class Client {
  		this.dta2 = new Generic<>();
  	}
     
-    public Client(int id, String name, String email, String address) {
+    public Client(int id, String name, String email, String address, String dni) {
         this.dta = new Generic<>(id, null, name, address);
-        this.dta2 = new Generic<>(email);
+        this.dta2 = new Generic<>(email, dni);
+    }
+    
+    public void setDNI(String dni) {
+    	dta2.setAttribute3(dni);
+    }
+    
+    public String getDNI() {
+    	return dta2.getAttribute3();
     }
 
     public void setID(int id) {

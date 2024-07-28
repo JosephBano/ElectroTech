@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Model.Employees;
@@ -12,6 +13,7 @@ import View.View_Clientes;
 import View.View_Employees;
 import View.View_Login;
 import View.View_Proveedor;
+import View.View_resetPsw;
 import View.View_ventas;
 import View.view_inventario;
 
@@ -25,6 +27,7 @@ public class Logic_view_login implements ActionListener, Parametrizable{
 		// TODO Auto-generated constructor stub
 		this.vm=vm;
 		this.vm.btn_join.addActionListener(this);
+		this.vm.btn_key.addActionListener(this);
 		
 	}
 
@@ -35,6 +38,11 @@ public class Logic_view_login implements ActionListener, Parametrizable{
             if(validateUser()) {            	
             	redirectUser();
             }
+		}
+		if(e.getSource()==vm.btn_key) {
+			View_resetPsw vhs=new View_resetPsw();
+	        vhs.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	        vhs.setVisible(true);
 		}
 	}
 	

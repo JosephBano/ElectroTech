@@ -12,14 +12,12 @@ import Controller.Logic_view_login;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-import javax.swing.Action;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Color;
-import javax.swing.DropMode;
 import java.awt.Toolkit;
 import javax.swing.JSeparator;
 
@@ -30,9 +28,10 @@ public class View_Login extends JFrame {
 	private JPanel contentPane;
 	public JTextField txt_email;
 	public JPasswordField psf_password;
-	private JLabel lbl_textInicioSesion;
-	private JLabel lbl_IconUser;
+	public JLabel lbl_textInicioSesion;
+	public JLabel lbl_IconUser;
 	public JButton btn_join;
+	public JButton btn_key;
 
 	/**
 	 * Launch the application.
@@ -57,7 +56,7 @@ public class View_Login extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(View_Login.class.getResource("/view_multimedia/Ingresar.png")));
 		setTitle("Log In");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 357, 380);
+        setBounds(100, 100, 357, 378);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -69,39 +68,56 @@ public class View_Login extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
                 
-                btn_join = new JButton("");
-                btn_join.setToolTipText("Join");
+        btn_join = new JButton("");
+        btn_join.setToolTipText("Join");
 
-                btn_join.setBorderPainted(false);
-                btn_join.setContentAreaFilled(false);
-                btn_join.setIcon(new ImageIcon(View_Login.class.getResource("/view_multimedia/login_24dp_FILL0_wght400_GRAD0_opsz24.png")));
-                btn_join.addActionListener(new ActionListener() {
-                	public void actionPerformed(ActionEvent e) {
-                	}
-                });
-                
-                JSeparator separator_1 = new JSeparator();
-                separator_1.setForeground(Color.DARK_GRAY);
-                separator_1.setBounds(68, 230, 225, 8);
-                panel.add(separator_1);
-                
-                JSeparator separator = new JSeparator();
-                separator.setForeground(Color.DARK_GRAY);
-                separator.setBounds(68, 143, 225, 8);
-                panel.add(separator);
-                btn_join.setBounds(145, 249, 50, 50);
-                panel.add(btn_join);
-                
-                lbl_IconUser = new JLabel("");
-                lbl_IconUser.setIcon(new ImageIcon(View_Login.class.getResource("/view_multimedia/face.png")));
-                lbl_IconUser.setBounds(155, 3, 45, 45);
-                panel.add(lbl_IconUser);
-                
-                lbl_textInicioSesion = new JLabel("Inicio de Sesión");
-                lbl_textInicioSesion.setFont(new Font("Times New Roman", Font.BOLD, 25));
-                lbl_textInicioSesion.setForeground(new Color(255, 255, 255));
-                lbl_textInicioSesion.setBounds(90, 33, 167, 52);
-                panel.add(lbl_textInicioSesion);
+        btn_join.setBorderPainted(false);
+        btn_join.setContentAreaFilled(false);
+        btn_join.setIcon(new ImageIcon(View_Login.class.getResource("/view_multimedia/login_24dp_FILL0_wght400_GRAD0_opsz24.png")));
+        btn_join.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        
+        btn_key = new JButton("Recuperar contraseña");
+        btn_key.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        
+        JSeparator separator_2 = new JSeparator();
+        separator_2.setForeground(Color.DARK_GRAY);
+        separator_2.setBounds(115, 314, 130, 8);
+        panel.add(separator_2);
+        btn_key.setFont(new Font("Tahoma", Font.BOLD, 11));
+        btn_key.setForeground(new Color(255, 255, 255));
+        btn_key.setBorder(null);
+        btn_key.setOpaque(false);
+        btn_key.setBounds(116, 299, 129, 23);
+        panel.add(btn_key);
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setForeground(Color.DARK_GRAY);
+        separator_1.setBounds(68, 230, 225, 8);
+        panel.add(separator_1);
+        
+        JSeparator separator = new JSeparator();
+        separator.setForeground(Color.DARK_GRAY);
+        separator.setBounds(68, 143, 225, 8);
+        panel.add(separator);
+        btn_join.setBounds(145, 249, 50, 50);
+        panel.add(btn_join);
+        
+        lbl_IconUser = new JLabel("");
+        lbl_IconUser.setIcon(new ImageIcon(View_Login.class.getResource("/view_multimedia/face.png")));
+        lbl_IconUser.setBounds(155, 3, 45, 45);
+        panel.add(lbl_IconUser);
+        
+        lbl_textInicioSesion = new JLabel("Inicio de Sesión");
+        lbl_textInicioSesion.setFont(new Font("Times New Roman", Font.BOLD, 25));
+        lbl_textInicioSesion.setForeground(new Color(255, 255, 255));
+        lbl_textInicioSesion.setBounds(90, 33, 167, 52);
+        panel.add(lbl_textInicioSesion);
         
         JLabel lbl_email = new JLabel("Usuario");
         lbl_email.setForeground(new Color(255, 255, 255));
@@ -136,6 +152,11 @@ public class View_Login extends JFrame {
         lbl_background.setIcon(new ImageIcon(View_Login.class.getResource("/view_multimedia/background vilet.png")));
         lbl_background.setBounds(0, 0, 345, 345);
         panel.add(lbl_background);
+        
+        JSeparator separator_3 = new JSeparator();
+        separator_3.setForeground(Color.DARK_GRAY);
+        separator_3.setBounds(68, 314, 225, 8);
+        panel.add(separator_3);
 
         Logic_view_login lvm=new Logic_view_login(this);
 	}
