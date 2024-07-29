@@ -78,7 +78,7 @@ public class EmployeesDAO implements Parametrizable{
     }
 	
 	public boolean restartPSW2(String email) {
-        return conn.setQuery(String.format("UPDATE electrotech.employee SET psw = dni WHERE email = %s;",
+        return conn.setQuery(String.format("UPDATE electrotech.employee SET psw = dni WHERE email = '%s';",
                 email));
     }
 }

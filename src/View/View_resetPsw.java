@@ -24,7 +24,7 @@ public class View_resetPsw extends JFrame {
 
 	public View_resetPsw() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 238, 191);
+		setBounds(100, 100, 238, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -32,7 +32,7 @@ public class View_resetPsw extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 222, 154);
+		panel.setBounds(0, 0, 222, 261);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -41,12 +41,13 @@ public class View_resetPsw extends JFrame {
 		btn_recuperar.setFont(new Font("Times New Roman", Font.BOLD, 15));
 		btn_recuperar.setBorder(null);
 		btn_recuperar.setOpaque(false);
-		btn_recuperar.setBounds(66, 106, 89, 23);
+        btn_recuperar.setContentAreaFilled(false);
+		btn_recuperar.setBounds(65, 164, 89, 23);
 		panel.add(btn_recuperar);
 		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(new Color(255, 255, 255));
-		separator.setBounds(15, 94, 194, 1);
+		separator.setBounds(15, 125, 194, 1);
 		panel.add(separator);
 		
 		txt_email = new JTextField();
@@ -54,7 +55,7 @@ public class View_resetPsw extends JFrame {
 		txt_email.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txt_email.setBorder(null);
 		txt_email.setOpaque(false);
-		txt_email.setBounds(15, 54, 194, 29);
+		txt_email.setBounds(15, 90, 194, 29);
 		panel.add(txt_email);
 		txt_email.setColumns(10);
 		
@@ -66,7 +67,7 @@ public class View_resetPsw extends JFrame {
 		
 		JLabel Background = new JLabel("");
 		Background.setIcon(new ImageIcon(View_resetPsw.class.getResource("/view_multimedia/background vilet.png")));
-		Background.setBounds(0, 0, 222, 154);
+		Background.setBounds(0, 0, 222, 261);
 		panel.add(Background);
 		
 		new Controller_View_resetPsw(this);

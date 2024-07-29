@@ -1,29 +1,24 @@
 package View;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
 import Controller.Controller_View_HistorySales;
 
-import javax.swing.JList;
-import java.awt.Color;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.AbstractListModel;
-import javax.swing.JScrollBar;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JScrollPane;
 
 public class View_HistorySales extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	public JPanel contentPane;
-	public JList list;
+	public JTable tb_Client;
+	private JScrollPane scrollPane;
 
 	public View_HistorySales() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,9 +34,13 @@ public class View_HistorySales extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		list = new JList();
-		list.setBounds(10, 11, 444, 170);
-		panel.add(list);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 464, 192);
+		panel.add(scrollPane);
+		
+		tb_Client = new JTable();
+		scrollPane.setViewportView(tb_Client);
+		tb_Client.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		JLabel lblNewLabel = new JLabel("Historial de ventas");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

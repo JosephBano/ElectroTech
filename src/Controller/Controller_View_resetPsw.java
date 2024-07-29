@@ -22,10 +22,10 @@ public class Controller_View_resetPsw implements Parametrizable, ActionListener{
 		if(e.getSource()==vrp.btn_recuperar) {
 			String email = vrp.txt_email.getText();
 			if(edao.restartPSW2(email)) {
-				JOptionPane.showConfirmDialog(vrp, "Se ha restablecido la contrasena con exito!");
+				JOptionPane.showMessageDialog(vrp, "Se ha restablecido la contrasena con exito!");
 			}
 			else {
-				JOptionPane.showConfirmDialog(vrp, "No se ha podido completar la operacion");
+				JOptionPane.showMessageDialog(vrp, "No se ha podido completar la operacion");
 			}
 		}
 	}

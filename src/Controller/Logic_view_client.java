@@ -1,5 +1,6 @@
 package Controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class Logic_view_client implements ActionListener, Parametrizable, Docume
 			this.vc.btn_Add.setEnabled(false);
 			this.vc.btn_validate.setEnabled(false);
 			this.vc.btn_register.setEnabled(false);
+			this.vc.btn_save.setEnabled(true);
 		}
 		else if(e.getSource()==vc.btn_Update) {
 			flag = false;
@@ -91,6 +93,9 @@ public class Logic_view_client implements ActionListener, Parametrizable, Docume
 		else if(e.getSource()==vc.btn_save) {
 			//CREATE
 			if(flag) {
+				
+				if(!validateFieldsInsert()) return;
+				
 				String name = vc.txt_Name.getText();
 				String address = vc.txt_Address.getText();
 				String detail = vc.txt_ContactDetails.getText();
@@ -112,6 +117,8 @@ public class Logic_view_client implements ActionListener, Parametrizable, Docume
 					clients = cdao.searchClient(dni);
 					if(!clients.isEmpty()) {
 						client = clients.get(0);
+						
+						if(!validateFieldsUpdate()) return;
 						
 						String name = vc.txt_Name.getText();
 						String address = vc.txt_Address.getText();
@@ -137,6 +144,74 @@ public class Logic_view_client implements ActionListener, Parametrizable, Docume
 				}
 			}
 		}
+	}
+	
+	public boolean validateFieldsInsert() {
+		boolean flagFields = true;
+		if(!Parametrizable.validarRegex(ERNames4, vc.txt_Name.getText())) {
+			vc.txt_Name.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_Name.setText("");
+		}
+		else {
+			vc.txt_Name.setBackground(Color.white);
+		}
+		if(!Parametrizable.validarRegex(ERAddress, vc.txt_Address.getText())) {
+			vc.txt_Address.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_Address.setText("");
+		}
+		else {
+			vc.txt_Address.setBackground(Color.white);
+		}
+		if(!Parametrizable.validarRegex(EREmail, vc.txt_ContactDetails.getText())) {
+			vc.txt_ContactDetails.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_ContactDetails.setText("");
+		}
+		else {
+			vc.txt_ContactDetails.setBackground(Color.white);
+		}
+		if(!Parametrizable.validarRegex(ERDNI, vc.txt_dni.getText())) {
+			vc.txt_dni.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_dni.setText("");
+		}
+		else {
+			vc.txt_dni.setBackground(Color.white);
+		}
+		
+		return flagFields;
+	}
+	
+	public boolean validateFieldsUpdate() {
+		boolean flagFields = true;
+		if(!Parametrizable.validarRegex(ERNames4, vc.txt_Name.getText())) {
+			vc.txt_Name.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_Name.setText("");
+		}
+		else {
+			vc.txt_Name.setBackground(Color.white);
+		}
+		if(!Parametrizable.validarRegex(ERAddress, vc.txt_Address.getText())) {
+			vc.txt_Address.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_Address.setText("");
+		}
+		else {
+			vc.txt_Address.setBackground(Color.white);
+		}
+		if(!Parametrizable.validarRegex(EREmail, vc.txt_ContactDetails.getText())) {
+			vc.txt_ContactDetails.setBackground(Color.red);
+			flagFields = false;
+			vc.txt_ContactDetails.setText("");
+		}
+		else {
+			vc.txt_ContactDetails.setBackground(Color.white);
+		}
+		
+		return flagFields;
 	}
 	
 	public void resetFields() {

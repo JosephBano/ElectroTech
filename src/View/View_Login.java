@@ -80,6 +80,8 @@ public class View_Login extends JFrame {
         });
         
         btn_key = new JButton("Recuperar contraseña");
+        btn_key.setOpaque(false);
+        btn_key.setContentAreaFilled(false);
         btn_key.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}

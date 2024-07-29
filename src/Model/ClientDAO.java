@@ -24,7 +24,7 @@ public class ClientDAO implements Parametrizable{
 	public List<Client> listClient() throws SQLException {
 		List<Client> clients = new ArrayList<>();
 		
-		ResultSet res = conn.getQuery("SELECT * FROM electrotech.client;");
+		ResultSet res = conn.getQuery("SELECT * FROM electrotech.client WHERE id != 5;");
 		
 		while(res.next()) {
 			clients.add(new Client(	res.getInt("id"),
@@ -61,6 +61,32 @@ public class ClientDAO implements Parametrizable{
 					c.getAddress(),
 					c.getDNI(),
 					c.getID()));
+	}
+	
+	public String NameClientByID(int id) throws SQLException {
+		String client = ""; 
+		
+		ResultSet res = conn.getQuery(String.format("SELECT name FROM electrotech.client WHERE id = %d;", id));
+		
+		while(res.next()) {
+			client = res.getString("name");
+		}
+		conn.closeConn();
+		return client;
+
+	}
+	
+	public int IDClientBydni(String dni) throws SQLException {
+		int client = 0; 
+		
+		ResultSet res = conn.getQuery(String.format("SELECT id FROM electrotech.client WHERE dni = '%s';", dni));
+		
+		while(res.next()) {
+			client = res.getInt("id");
+		}
+		conn.closeConn();
+		return client;
+
 	}
 	
 }

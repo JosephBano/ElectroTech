@@ -12,6 +12,7 @@ import javax.swing.event.DocumentListener;
 
 import Model.Product;
 import Model.Provider;
+import Model.Sale;
 import View.View_EntrysInventory;
 import View.view_inventario;
 
@@ -63,6 +64,7 @@ public class Logic_view_inventario implements ActionListener, Parametrizable, Do
 			Product product = new Product(0, provider.getId(), name, description, price, stock);
 			
 			if(pdao.insertProduct(product)) {
+				sdao.insertSaleInventory(new Sale(0, 5, 0, stock, 0.0, getDateFormatted()));
 				JOptionPane.showMessageDialog(vi, "Producto agregado correctamente!");
 				resetFields();
 			}
@@ -76,10 +78,10 @@ public class Logic_view_inventario implements ActionListener, Parametrizable, Do
 				for(Product s: low_stock_products) {
 					str += "->" + s.getName() + "\n";
 				}
-				JOptionPane.showConfirmDialog(vi, str);
+				JOptionPane.showMessageDialog(vi, str);
 			}
 			else {
-				JOptionPane.showConfirmDialog(vi, "Ninguna notificacion que mostrar!");
+				JOptionPane.showMessageDialog(vi, "Ninguna notificacion que mostrar!");
 			}
 		}
 		else if(e.getSource()==vi.btn_entry) {

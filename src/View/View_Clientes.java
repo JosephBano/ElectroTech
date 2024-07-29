@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
 import Controller.Logic_view_client;
 
 import java.awt.Color;
@@ -175,7 +174,7 @@ public class View_Clientes extends JFrame {
 	    btn_register.setFont(new Font("Roboto Condensed", Font.PLAIN, 15));
 	    
 	    btn_register.setEnabled(false);
-	    btn_register.setBounds(320, 182, 93, 23);
+	    btn_register.setBounds(320, 182, 83, 23);
 	    contentPane.add(btn_register);
 	    
 	    JSeparator separator_2_1 = new JSeparator();
@@ -209,7 +208,7 @@ public class View_Clientes extends JFrame {
 	    
 	    btn_save = new JButton("Guardar");
 	    btn_save.setFont(new Font("Roboto Condensed", Font.BOLD, 17));
-	    btn_save.setBounds(327, 384, 101, 23);
+	    btn_save.setBounds(327, 384, 89, 23);
 	    
 	    contentPane.add(btn_save);
 	    btn_save.setOpaque(true);
